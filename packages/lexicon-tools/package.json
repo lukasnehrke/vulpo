@@ -1,0 +1,19 @@
+{
+  "name": "@lukasnehrke/lexicon-tools",
+  "version": "0.0.1",
+  "description": "Lexicon Generator and CLI Tools.",
+  "type": "module",
+  "license": "MIT",
+  "homepage": "https://vulpo.org",
+  "bugs": "https://github.com/lukasnehrke/vulpo/issues",
+  "author": "Lukas Nehrke <lukasnehrke@protonmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lukasnehrke/vulpo.git",
+    "directory": "packages/lexicon-tools"
+  },
+  "keywords": [
+    "markdown",
+    "ssg"
+  ]
+}
