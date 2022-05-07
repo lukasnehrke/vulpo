@@ -1,0 +1,19 @@
+{
+  "name": "@lukasnehrke/gatsby-lexicon-plugin",
+  "version": "0.0.1",
+  "description": "Lexicon Plugin for Gatsby.",
+  "type": "module",
+  "license": "MIT",
+  "homepage": "https://vulpo.org",
+  "bugs": "https://github.com/lukasnehrke/vulpo/issues",
+  "author": "Lukas Nehrke <lukasnehrke@protonmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lukasnehrke/vulpo.git",
+    "directory": "packages/gatsby-lexicon-plugin"
+  },
+  "keywords": [
+    "gatsby",
+    "markdown"
+  ]
+}
