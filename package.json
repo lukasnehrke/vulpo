@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "workspaces": [],
+  "type": "module",
+  "scripts": {
+    "format": "prettier --write .",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,md,html,css,yaml,json}": "prettier --write"
+  },
+  "devDependencies": {
+    "husky": ">=6",
+    "lint-staged": ">=10",
+    "prettier": "^2.6.2"
+  }
+}
