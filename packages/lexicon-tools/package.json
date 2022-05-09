@@ -2,7 +2,6 @@
   "name": "@lukasnehrke/lexicon-tools",
   "version": "0.0.1",
   "description": "Lexicon Generator and CLI Tools.",
-  "type": "module",
   "license": "MIT",
   "homepage": "https://vulpo.org",
   "bugs": "https://github.com/lukasnehrke/vulpo/issues",
@@ -15,5 +14,21 @@
   "keywords": [
     "markdown",
     "ssg"
-  ]
+  ],
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc --build",
+    "test": "uvu -r tsm test",
+    "typecheck": "tsc --noEmit",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "chokidar": "^3.5.3",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.5"
+  }
 }

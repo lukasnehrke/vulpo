@@ -12,8 +12,13 @@
     "*.{js,jsx,ts,tsx,md,html,css,yaml,json}": "prettier --write"
   },
   "devDependencies": {
+    "@types/node": "^17.0.31",
     "husky": "7.0.4",
     "lint-staged": "12.4.1",
-    "prettier": "2.6.2"
+    "patch-package": "^6.4.7",
+    "prettier": "2.6.2",
+    "tsm": "^2.2.1",
+    "typescript": "^4.6.4",
+    "uvu": "^0.5.3"
   }
 }

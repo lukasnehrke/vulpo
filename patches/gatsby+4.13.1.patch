@@ -1,0 +1,13 @@
+diff --git a/node_modules/gatsby/dist/utils/parcel/compile-gatsby-files.js b/node_modules/gatsby/dist/utils/parcel/compile-gatsby-files.js
+index ac34767..88e085c 100644
+--- a/node_modules/gatsby/dist/utils/parcel/compile-gatsby-files.js
++++ b/node_modules/gatsby/dist/utils/parcel/compile-gatsby-files.js
+@@ -37,7 +37,7 @@ function constructParcel(siteRoot) {
+     targets: {
+       root: {
+         outputFormat: `commonjs`,
+-        includeNodeModules: false,
++        includeNodeModules: true,
+         sourceMap: false,
+         engines: {
+           node: `>= 14.15.0`
