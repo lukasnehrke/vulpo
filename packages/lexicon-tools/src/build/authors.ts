@@ -1,9 +1,10 @@
-import path from "path";
+import { readFile, readdir } from "fs/promises";
 import yaml from "js-yaml";
-import { readdir, readFile } from "fs/promises";
+import path from "path";
+
 import { Author } from "../model/author";
-import { BuildOptions } from "./types";
 import { isDirectory } from "../utils";
+import { BuildOptions } from "./types";
 
 /**
  * Transforms all author files in a directory to an {@link Author} object.

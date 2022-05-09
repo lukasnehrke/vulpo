@@ -1,6 +1,6 @@
 import { build, watch } from "../build";
-import { Author } from "./author";
 import { BuildOptions } from "../build/types";
+import { Author } from "./author";
 
 export type LexiconOptions = {
   production: boolean;

@@ -1,13 +1,14 @@
-import { BuildOptions } from "./types";
+import fs from "fs";
+import { readdir } from "fs/promises";
+import yaml from "js-yaml";
+import path from "path";
+
+import { Article } from "../model/article";
+import { Category } from "../model/category";
+import { Lesson } from "../model/lesson";
 import { Lexicon } from "../model/lexicon";
 import { isChildOrParent, isFile } from "../utils";
-import path from "path";
-import fs from "fs";
-import { Category } from "../model/category";
-import yaml from "js-yaml";
-import { Lesson } from "../model/lesson";
-import { Article } from "../model/article";
-import { readdir } from "fs/promises";
+import { BuildOptions } from "./types";
 
 export const buildLexicon = async (source: string, change: string, lexicon: Lexicon, options: BuildOptions) => {
   const categories: Category[] = [];

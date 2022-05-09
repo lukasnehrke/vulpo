@@ -1,6 +1,6 @@
+import { Author } from "./author";
 import { Category } from "./category";
 import { Lexicon } from "./lexicon";
-import { Author } from "./author";
 import { Page } from "./page";
 
 export interface LessonConfig {

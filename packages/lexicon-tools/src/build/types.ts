@@ -1,7 +1,7 @@
+import { Article } from "../model/article";
 import { Author } from "../model/author";
 import { Category } from "../model/category";
 import { Lesson } from "../model/lesson";
-import { Article } from "../model/article";
 
 export type BuildOptions = {
   /** Log Hooks */

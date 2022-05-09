@@ -1,11 +1,12 @@
+import chokidar from "chokidar";
+import fs from "fs";
+import path from "path";
+
 import { Lexicon } from "../model/lexicon";
 import { isDirectory } from "../utils";
-import path from "path";
-import fs from "fs";
-import chokidar from "chokidar";
-import { BuildOptions } from "./types";
 import { buildAuthors } from "./authors";
 import { buildLexicon } from "./lexicon";
+import { BuildOptions } from "./types";
 
 const defaultOptions: Partial<BuildOptions> = {
   hooks: {

@@ -1,5 +1,5 @@
-import { Lexicon } from "./lexicon";
 import { Lesson } from "./lesson";
+import { Lexicon } from "./lexicon";
 
 export interface PageConfig {
   title: string;
