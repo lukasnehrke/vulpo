@@ -2,7 +2,6 @@
   "name": "@lukasnehrke/gatsby-lexicon-plugin",
   "version": "0.0.1",
   "description": "Lexicon Plugin for Gatsby.",
-  "type": "module",
   "license": "MIT",
   "homepage": "https://vulpo.org",
   "bugs": "https://github.com/lukasnehrke/vulpo/issues",
@@ -15,5 +14,13 @@
   "keywords": [
     "gatsby",
     "markdown"
-  ]
+  ],
+  "type": "module",
+  "main": "index.js",
+  "peerDependencies": {
+    "gatsby": "^4.13.1"
+  },
+  "dependencies": {
+    "@lukasnehrke/lexicon-tools": "0.0.1"
+  }
 }
