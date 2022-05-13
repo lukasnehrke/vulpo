@@ -66,6 +66,7 @@ export default (args, options) => {
           description: lesson.description,
           color: lesson.color,
           parent: lesson.parent.__gatsbyId,
+          categories___NODE: lesson.categories.map((child) => child.__gatsbyId),
           pages___NODE: lesson.pages.map((page) => page.__gatsbyId),
           authors___NODE: lesson.authors.map((author) => author.__gatsbyId),
           internal: {

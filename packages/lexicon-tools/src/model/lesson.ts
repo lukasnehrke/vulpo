@@ -43,6 +43,10 @@ export class Lesson {
     return this.config.slug;
   }
 
+  get categories(): Category[] {
+    return [...this.parent.categories, this.parent];
+  }
+
   get description(): string | undefined {
     if (this.config.description) return this.config.description;
     if (this.pages.length === 0) return undefined;
