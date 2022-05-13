@@ -122,6 +122,7 @@ export const query = graphql`
       title
       url
       edit
+      color
       categories {
         root
         title
