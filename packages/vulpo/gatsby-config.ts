@@ -47,6 +47,7 @@ const config: GatsbyConfig = {
       options: {
         lexicon: {
           directory: path.resolve("../../lexicon"),
+          edit: "https://github.com/lukasnehrke/vulpo/tree/main/lexicon/de",
         },
         template: {
           category: path.resolve("./src/template/category.tsx"),

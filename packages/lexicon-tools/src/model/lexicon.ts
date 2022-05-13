@@ -5,6 +5,7 @@ import { Author } from "./author";
 export type LexiconOptions = {
   production: boolean;
   directory: string;
+  edit: string;
 };
 
 export class Lexicon {

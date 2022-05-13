@@ -53,6 +53,11 @@ export abstract class Page<T extends PageConfig> {
     return `${this.parent.url}/${this.config.slug}`;
   }
 
+  get edit(): string | undefined {
+    if (!this.lexicon.options.edit) return undefined;
+    return `${this.lexicon.options.edit}/${this.path}`;
+  }
+
   get color(): string | undefined {
     return this.parent.color;
   }

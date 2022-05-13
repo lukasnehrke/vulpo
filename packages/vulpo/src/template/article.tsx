@@ -10,6 +10,7 @@ interface Props {
       slug: string;
       title: string;
       description?: string;
+      edit?: string;
       color?: string;
       content: string;
       parent: {
@@ -36,6 +37,7 @@ const Article = ({ data }: Props) => {
       <SEO title={article.title} description={article.description} />
       <Lecture
         breadcrumbs={[...[], { title: article.parent.title, url: article.parent.url }]}
+        editUrl={article.edit}
         authors={article.authors}
         color={article.color}
         pages={article.parent.pages}
@@ -52,6 +54,7 @@ export const query = graphql`
       title
       slug
       content
+      edit
       color
       parent {
         ... on LexiconLesson {

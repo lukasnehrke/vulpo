@@ -100,7 +100,7 @@ const Category = ({ data }: Props) => {
               <span className="text-sm font-medium">{category.title}</span>
               {category.edit && (
                 <Link to={category.edit} blank>
-                  <GitHubIcon />
+                  <GitHubIcon className="text-white w-6 w-6" />
                 </Link>
               )}
             </div>
@@ -121,6 +121,7 @@ export const query = graphql`
       root
       title
       url
+      edit
       categories {
         root
         title

@@ -68,6 +68,11 @@ export class Category {
     return `/de/${this.root.slug}/${this.slug}`;
   }
 
+  get edit(): string | undefined {
+    if (!this.lexicon.options.edit) return undefined;
+    return `${this.lexicon.options.edit}/${this.path}`;
+  }
+
   get color(): string | undefined {
     if (this.config.color) return this.config.color;
     if (!this.parent) return undefined;
