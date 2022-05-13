@@ -2537,7 +2537,7 @@
   resolved "https://registry.yarnpkg.com/@types/estree/-/estree-0.0.46.tgz#0fb6bfbbeabd7a30880504993369c4bf1deab1fe"
   integrity sha512-laIjwTQaD+5DukBZaygQ79K1Z0jb1bPEMRrkXSLjtCcZm+abyp5YbrqpSLzD42FwWW6gK/aS4NYpJ804nG2brg==
 
-"@types/fg-loadcss@^3.1.1":
+"@types/fg-loadcss@3.1.1":
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/@types/fg-loadcss/-/fg-loadcss-3.1.1.tgz#3cf924829a4db827ccf608e99c4fdbaf9ce3adc4"
   integrity sha512-EtY4ddwpeLqlzd1SlU8I6MGGJmKJ4Czd4cTXmNCn3uPVVIO2HnWplozPyMIAm0H1bMChBX+f94vfH3YJx7rH3w==
@@ -2698,7 +2698,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-dom@^18.0.4":
+"@types/react-dom@18.0.4":
   version "18.0.4"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-18.0.4.tgz#dcbcadb277bcf6c411ceff70069424c57797d375"
   integrity sha512-FgTtbqPOCI3dzZPZoC2T/sx3L34qxy99ITWn4eoSA95qPyXDMH0ALoAqUp49ITniiJFsXUVBtalh/KffMpg21Q==
@@ -2729,7 +2729,7 @@
     "@types/react" "*"
     "@types/react-instantsearch-core" "*"
 
-"@types/react@*", "@types/react@>=16", "@types/react@^18.0.9":
+"@types/react@*", "@types/react@18.0.9", "@types/react@>=16":
   version "18.0.9"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.9.tgz#d6712a38bd6cd83469603e7359511126f122e878"
   integrity sha512-9bjbg1hJHUm4De19L1cHiW0Jvx3geel6Qczhjd0qY5VKVE2X5+x77YxAepuCwVh4vrgZJdgEJw48zrhRIeF4Nw==
@@ -5808,7 +5808,7 @@ fd@~0.0.2:
   resolved "https://registry.yarnpkg.com/fd/-/fd-0.0.3.tgz#b3240de86dbf5a345baae7382a07d4713566ff0c"
   integrity sha512-iAHrIslQb3U68OcMSP0kkNWabp7sSN6d2TBSb2JO3gcLJVDd4owr/hKM4SFJovFOUeeXeItjYgouEDTMWiVAnA==
 
-fg-loadcss@^3.1.0:
+fg-loadcss@3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/fg-loadcss/-/fg-loadcss-3.1.0.tgz#f7f148dccf8a6899f846a974ed50539880158acb"
   integrity sha512-UgtXKza8nBUO6UWW4c+MOprRL4W5WbIkzPJafnw6y6f5jhA3FiSZkWz8eXeAeX+mC4A/qq0ByDLiAk6erNARaQ==
@@ -6219,7 +6219,7 @@ gatsby-parcel-config@^0.4.0:
     "@parcel/transformer-raw" "^2.3.2"
     "@parcel/transformer-react-refresh-wrap" "^2.3.2"
 
-gatsby-plugin-gatsby-cloud@^4.13.0:
+gatsby-plugin-gatsby-cloud@4.14.0:
   version "4.14.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-gatsby-cloud/-/gatsby-plugin-gatsby-cloud-4.14.0.tgz#aa4dd60a6257507e55fc0aa81c8cb015e6e4bd47"
   integrity sha512-9xG+9L5I/Dj2PgpXeTdwFu4FhEjbpAHJaQJuxi9Wz2h4O3ix02nkXmvcDrX3JC/peOQ4zFfHh/mTy2jHl2pzow==
