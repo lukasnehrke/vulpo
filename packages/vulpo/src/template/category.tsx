@@ -20,16 +20,13 @@ interface Props {
       edit?: string;
       description?: string;
       color?: string;
-      parentCategories: {
+      categories: {
         root: boolean;
         title: string;
         url: string;
       }[];
-      childCategories: {
-        title: string;
-        url: string;
-      }[];
-      childLessons: {
+      children: {
+        __typename: string;
         title: string;
         url: string;
       }[];
@@ -46,37 +43,37 @@ interface Props {
 
 const Category = ({ data }: Props) => {
   const category = data.lexiconCategory;
-  const style = category.color ? { ["--theme-color" as any]: category.color } : {};
 
-  const categories = category.childCategories.map((c) => (
-    <li key={`category-${c.url}`}>
-      <Link to={c.url} className="flex items-center px-4 py-2 h-full w-full hover:bg-sky-100 dark:hover:bg-slate-600">
-        <div className="rounded-full bg-zinc-400 h-10 w-10 flex items-center justify-center mr-3">
-          <FolderIcon className="h-6 w-6 text-white" />
-        </div>
-        <span className="text-slate-800 dark:text-slate-200 truncate">{c.title}</span>
-      </Link>
-    </li>
-  ));
+  const categories = category.children
+    .filter((c) => c.__typename === "LexiconCategory")
+    .map((c) => (
+      <li key={c.url}>
+        <Link to={c.url} className="flex items-center px-4 py-2 h-full w-full hover:bg-sky-100 dark:hover:bg-slate-600">
+          <div className="rounded-full bg-zinc-400 h-10 w-10 flex items-center justify-center mr-3">
+            <FolderIcon className="h-6 w-6 text-white" />
+          </div>
+          <span className="text-slate-800 dark:text-slate-200 truncate">{c.title}</span>
+        </Link>
+      </li>
+    ));
 
-  const lessons = category.childLessons.map((c) => (
-    <li key={`lecture-${c.url}`}>
-      <Link to={c.url} className="flex items-center px-4 py-2 h-full w-full hover:bg-sky-100 dark:hover:bg-slate-600">
-        <div className="rounded-full bg-zinc-400 h-10 w-10 flex items-center justify-center mr-3">
-          <DocumentTextIcon className="h-6 w-6 text-white" />
-        </div>
-        <span className="text-slate-800 dark:text-slate-200 truncate">{c.title}</span>
-      </Link>
-    </li>
-  ));
+  const lessons = category.children
+    .filter((c) => c.__typename === "LexiconLesson")
+    .map((c) => (
+      <li key={c.url}>
+        <Link to={c.url} className="flex items-center px-4 py-2 h-full w-full hover:bg-sky-100 dark:hover:bg-slate-600">
+          <div className="rounded-full bg-zinc-400 h-10 w-10 flex items-center justify-center mr-3">
+            <DocumentTextIcon className="h-6 w-6 text-white" />
+          </div>
+          <span className="text-slate-800 dark:text-slate-200 truncate">{c.title}</span>
+        </Link>
+      </li>
+    ));
 
-  const breadcrumbs = [
-    ...(category.parentCategories || []),
-    { root: category.root, title: category.title, url: category.url },
-  ];
+  const breadcrumbs = [...category.categories, { root: category.root, title: category.title, url: category.url }];
 
   return (
-    <div style={style}>
+    <div style={category.color ? { ["--theme-color" as any]: category.color } : {}}>
       <SEO title={category.pageTitle} description={category.description} />
       <Banner breadcrumbs={breadcrumbs} />
       <div className="flex mx-auto md:max-w-screen-xl md:grid md:gap-4 md:grid-cols-12 md:mt-4 md:px-2">
@@ -124,18 +121,21 @@ export const query = graphql`
       root
       title
       url
-      parentCategories {
+      categories {
         root
         title
         url
       }
-      childCategories {
-        title
-        url
-      }
-      childLessons {
-        title
-        url
+      children {
+        __typename
+        ... on LexiconCategory {
+          title
+          url
+        }
+        ... on LexiconLesson {
+          title
+          url
+        }
       }
     }
     allLexiconLesson(limit: 5) {

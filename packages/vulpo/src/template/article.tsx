@@ -1,9 +1,7 @@
-import { loadCSS } from "fg-loadcss";
 import { graphql } from "gatsby";
 import * as React from "react";
 
 import Lecture from "../components/lexicon/Lecture";
-import MDX from "../components/lexicon/MDX";
 import SEO from "../components/seo";
 
 interface Props {
@@ -14,7 +12,7 @@ interface Props {
       description?: string;
       color?: string;
       content: string;
-      parentLesson: {
+      parent: {
         title: string;
         url: string;
         pages: {
@@ -27,25 +25,17 @@ interface Props {
   };
 }
 
-// prettier-ignore
-const loadKatex = () => loadCSS("https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css", undefined, undefined, { "crossorigin": "anonymous", "integrity": "sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" });
-
 const Article = ({ data }: Props) => {
   const article = data.lexiconArticlePage;
-  const lesson = article.parentLesson;
-
-  React.useEffect(() => {
-    loadKatex();
-  }, []);
 
   return (
     <>
       <SEO title={article.title} description={article.description} />
       <Lecture
-        breadcrumbs={[...[], { title: lesson.title, url: lesson.url }]}
+        breadcrumbs={[...[], { title: article.parent.title, url: article.parent.url }]}
         authors={[]}
         color={article.color}
-        pages={lesson.pages}
+        pages={article.parent.pages}
         active={article.slug}
         content={article.content}
       />
@@ -60,13 +50,15 @@ export const query = graphql`
       slug
       content
       color
-      parentLesson {
-        title
-        url
-        pages {
+      parent {
+        ... on LexiconLesson {
           title
-          slug
           url
+          pages {
+            title
+            slug
+            url
+          }
         }
       }
     }

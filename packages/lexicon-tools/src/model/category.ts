@@ -1,4 +1,5 @@
 import { Lesson } from "./lesson";
+import { Lexicon } from "./lexicon";
 
 export interface CategoryConfig {
   parent?: Category;
@@ -10,24 +11,37 @@ export interface CategoryConfig {
   color?: string;
 }
 
+interface CategoryArgs {
+  lexicon: Lexicon;
+  parent?: Category;
+  path: string;
+  absolutePath: string;
+  config: CategoryConfig;
+}
+
 export class Category {
+  public readonly lexicon: Lexicon;
   public readonly parent?: Category;
   public readonly path: string;
   public readonly absolutePath: string;
-  public readonly title: string;
-  public readonly slug: string;
-
   public readonly config: CategoryConfig;
   public childCategories: Category[] = [];
   public childLessons: Lesson[] = [];
 
-  constructor(config: CategoryConfig) {
-    this.parent = config.parent;
-    this.path = config.path;
-    this.absolutePath = config.absolutePath;
-    this.title = config.title;
-    this.slug = config.slug;
-    this.config = config;
+  constructor(args: CategoryArgs) {
+    this.lexicon = args.lexicon;
+    this.parent = args.parent;
+    this.path = args.path;
+    this.absolutePath = args.absolutePath;
+    this.config = args.config;
+  }
+
+  get title(): string {
+    return this.config.title;
+  }
+
+  get slug(): string {
+    return this.config.slug;
   }
 
   get categories(): Category[] {

@@ -19,9 +19,14 @@ export const buildLexicon = async (source: string, change: string, lexicon: Lexi
 
     if (fs.existsSync(path.join(dir, "category.yaml"))) {
       const config = readConfig(dir, "category", { root: false, slug, title: slug });
+      const category = new Category({
+        lexicon,
+        config,
+        absolutePath: dir,
+        path: path.relative(source, dir),
+        parent: categories.length > 0 ? categories[categories.length - 1] : undefined,
+      });
 
-      config.parent = categories.length > 0 ? categories[categories.length - 1] : null;
-      const category = new Category(config);
       await options.hooks.onCategoryInit(category);
 
       categories.push(category);

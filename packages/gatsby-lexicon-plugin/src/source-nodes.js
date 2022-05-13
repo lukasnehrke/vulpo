@@ -19,8 +19,9 @@ export default (args, options) => {
         lesson.__gatsbyId = args.createNodeId("LexiconLesson >>> " + lesson.path);
       },
       onAuthorCreate: async (author) => {
-        const node = {
-          id: args.createNodeId("LexiconAuthor >>> " + author.slug),
+        author.__gatsbyId = args.createNodeId("LexiconAuthor >>> " + author.slug);
+        args.actions.createNode({
+          id: author.__gatsbyId,
           slug: author.slug,
           name: author.name,
           github: author.github,
@@ -28,39 +29,33 @@ export default (args, options) => {
             type: "LexiconAuthor",
             contentDigest: args.createContentDigest(author),
           },
-        };
-        args.actions.createNode(node);
+        });
       },
       onCategoryCreate: async (category) => {
-        const childCategories = category.childCategories.map((child) => child.__gatsbyId);
-        const childLessons = category.childLessons.map((child) => child.__gatsbyId);
-        const node = {
+        args.actions.createNode({
           id: category.__gatsbyId,
           path: category.path,
           absolutePath: category.absolutePath,
-          root: category.config.root,
-          title: category.config.title,
-          slug: category.config.slug,
+          title: category.title,
+          slug: category.slug,
           url: category.url,
           color: category.color,
-          childCategories___NODE: childCategories,
-          childLessons___NODE: childLessons,
-          children: [...childCategories, ...childLessons],
+          root: category.config.root,
+          parent: category.parent?.__gatsbyId,
+          categories___NODE: category.categories.map((c) => c.__gatsbyId),
+          children: [
+            ...category.childCategories.map((child) => child.__gatsbyId),
+            ...category.childLessons.map((child) => child.__gatsbyId),
+          ],
           internal: {
             type: "LexiconCategory",
             contentDigest: args.createContentDigest(category),
           },
-        };
-        if (category.parent) {
-          node.parent = category.parent.__gatsbyId;
-          node.parentCategory___NODE = category.parent.__gatsbyId;
-          node.parentCategories___NODE = category.categories.map((c) => c.__gatsbyId);
-        }
-        args.actions.createNode(node);
+        });
       },
       onLessonCreate: async (lesson) => {
         lesson.__gatsbyId = args.createNodeId("LexiconLesson >>> " + lesson.path);
-        const node = {
+        args.actions.createNode({
           id: lesson.__gatsbyId,
           path: lesson.path,
           absolutePath: lesson.absolutePath,
@@ -70,19 +65,17 @@ export default (args, options) => {
           description: lesson.description,
           color: lesson.color,
           parent: lesson.parent.__gatsbyId,
-          parentCategory___NODE: lesson.parent.__gatsbyId,
           pages___NODE: lesson.pages.map((page) => page.__gatsbyId),
           authors___NODE: [],
           internal: {
             type: "LexiconLesson",
             contentDigest: args.createContentDigest(lesson),
           },
-        };
-        args.actions.createNode(node);
+        });
       },
       onArticleCreate: async (article) => {
         article.__gatsbyId = args.createNodeId("LexiconArticle >>> " + article.path);
-        const node = {
+        args.actions.createNode({
           id: article.__gatsbyId,
           path: article.path,
           absolutePath: article.absolutePath,
@@ -92,15 +85,13 @@ export default (args, options) => {
           description: article.description,
           color: article.color,
           parent: article.parent.__gatsbyId,
-          parentLesson___NODE: article.parent.__gatsbyId,
           authors___NODE: [],
           content: article.content,
           internal: {
             type: "LexiconArticlePage",
             contentDigest: args.createContentDigest(article),
           },
-        };
-        args.actions.createNode(node);
+        });
       },
     },
   });
