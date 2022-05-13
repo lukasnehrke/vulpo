@@ -21,6 +21,9 @@ interface Props {
           url: string;
         }[];
       };
+      authors: {
+        name: string;
+      }[];
     };
   };
 }
@@ -33,7 +36,7 @@ const Article = ({ data }: Props) => {
       <SEO title={article.title} description={article.description} />
       <Lecture
         breadcrumbs={[...[], { title: article.parent.title, url: article.parent.url }]}
-        authors={[]}
+        authors={article.authors}
         color={article.color}
         pages={article.parent.pages}
         active={article.slug}
@@ -60,6 +63,9 @@ export const query = graphql`
             url
           }
         }
+      }
+      authors {
+        name
       }
     }
   }

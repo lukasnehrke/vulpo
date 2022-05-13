@@ -66,7 +66,7 @@ export default (args, options) => {
           color: lesson.color,
           parent: lesson.parent.__gatsbyId,
           pages___NODE: lesson.pages.map((page) => page.__gatsbyId),
-          authors___NODE: [],
+          authors___NODE: lesson.authors.map((author) => author.__gatsbyId),
           internal: {
             type: "LexiconLesson",
             contentDigest: args.createContentDigest(lesson),
@@ -85,7 +85,7 @@ export default (args, options) => {
           description: article.description,
           color: article.color,
           parent: article.parent.__gatsbyId,
-          authors___NODE: [],
+          authors___NODE: article.authors.map((author) => author.__gatsbyId),
           content: article.content,
           internal: {
             type: "LexiconArticlePage",

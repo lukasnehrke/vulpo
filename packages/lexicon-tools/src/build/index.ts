@@ -32,7 +32,7 @@ export const build = async (lexicon: Lexicon, options: BuildOptions): Promise<vo
 
   const authors = path.resolve(lexicon.directory, "authors");
   if (isDirectory(authors)) {
-    await buildAuthors(authors, opts);
+    lexicon.authors = await buildAuthors(authors, opts);
   }
 
   const source = path.resolve(lexicon.directory, "de");
