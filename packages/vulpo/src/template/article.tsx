@@ -2,6 +2,7 @@ import { graphql } from "gatsby";
 import * as React from "react";
 
 import Lecture from "../components/lexicon/Lecture";
+import MDX from "../components/lexicon/MDX";
 import SEO from "../components/seo";
 
 interface Props {
@@ -46,7 +47,7 @@ const Article = ({ data }: Props) => {
         color={article.color}
         pages={article.parent.pages}
         active={article.slug}
-        content={article.content}
+        content={<MDX body={article.content} />}
       />
     </>
   );

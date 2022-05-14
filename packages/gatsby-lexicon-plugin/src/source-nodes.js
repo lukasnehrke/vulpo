@@ -89,7 +89,7 @@ export default (args, options) => {
           color: article.color,
           parent: article.parent.__gatsbyId,
           authors___NODE: article.authors.map((author) => author.__gatsbyId),
-          content: article.content,
+          content: await article.generateMdx(),
           internal: {
             type: "LexiconArticlePage",
             contentDigest: args.createContentDigest(article),
