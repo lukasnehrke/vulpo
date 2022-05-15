@@ -6,7 +6,13 @@
 
 ![Screenshot](./.github/screenshot.png)
 
-Open-Source E-Learning Platform.
+Vulpo is a fully open-source e-learning platform. Instead of using a database, the learning content lives in
+the filesystem and gets transformed into static web pages at build time.
+
+Some advantages of this approach are:
+
+- **High Performance** with [Deferred Static Site Generation](https://www.gatsbyjs.com/blog/deferred-static-generation-guide/)
+- **Collaboration** with GitHub Issues, Pull Requests and Discussions
 
 ## References
 
