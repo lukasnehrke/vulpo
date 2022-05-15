@@ -21,6 +21,7 @@ interface Props {
   }[];
   editUrl?: string;
   active: string;
+  toc: string;
   content: any;
   color?: string;
 }
@@ -102,6 +103,11 @@ const Lecture = (props: Props) => {
             )}
           </footer>
         </article>
+        <aside className="lecture-side">
+          <div className="sticky top-20 mx-auto border-l-[3px] border-theme text-slate-800">
+            <div dangerouslySetInnerHTML={{ __html: props.toc }} />
+          </div>
+        </aside>
       </div>
       <Footer />
     </div>

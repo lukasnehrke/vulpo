@@ -1,3 +1,5 @@
+import { Article } from "@lukasnehrke/lexicon-tools";
+
 /** @param args {import("gatsby").CreateSchemaCustomizationArgs} */
 export default (args) => {
   args.actions.createTypes([
@@ -50,13 +52,32 @@ export default (args) => {
         id: { type: "ID!" },
         path: { type: "String!" },
         absolutePath: { type: "String!" },
+        lexiconId: { type: "String" },
         title: { type: "String!" },
         slug: { type: "String!" },
         url: { type: "String!" },
         description: { type: "String" },
         edit: { type: "String" },
         color: { type: "String" },
-        content: { type: "String!" },
+        source: { type: "String!" },
+        content: {
+          type: "String!",
+          async resolve(node) {
+            return Article.generateMdx(node.source);
+          },
+        },
+        toc: {
+          type: "String",
+          args: {
+            depth: {
+              type: "Int",
+              default: 3,
+            },
+          },
+          async resolve(node, { depth }) {
+            return Article.generateToc(node.source);
+          },
+        },
       },
       extensions: { infer: true },
       interfaces: ["Node"],

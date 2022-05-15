@@ -1,4 +1,4 @@
-import { compileMdx } from "../mdx";
+import { generateMdx, generateToc } from "../mdx";
 import { Page, PageArgs, PageConfig } from "./page";
 
 export interface ArticleConfig extends PageConfig {
@@ -10,7 +10,15 @@ export class Article extends Page<ArticleConfig> {
     super(args);
   }
 
-  async generateMdx(): Promise<string> {
-    return compileMdx({ source: this.config.source });
+  static async generateMdx(source: string) {
+    return generateMdx({ source });
+  }
+
+  static async generateToc(source: string) {
+    return generateToc({ source });
+  }
+
+  get source(): string {
+    return this.config.source;
   }
 }

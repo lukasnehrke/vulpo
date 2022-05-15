@@ -27,7 +27,9 @@
   "dependencies": {
     "@mdx-js/mdx": "^2.1.1",
     "chokidar": "^3.5.3",
+    "hast-util-to-html": "^8.0.3",
     "js-yaml": "^4.1.0",
+    "mdast-util-toc": "^6.1.0",
     "rehype-katex": "^6.0.2",
     "remark-directive": "^2.0.1",
     "remark-gfm": "^3.0.1",

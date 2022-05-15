@@ -33,6 +33,14 @@ main {
   width: auto;
 }
 
+.lecture-side ul:first-child {
+  padding-left: 8px;
+}
+
+.lecture-side ul {
+  padding-left: 12px;
+}
+
 @media (max-width: 1600px) {
   .lecture {
     grid-template-columns: minmax(268px, 300px) minmax(650px, 960px);
