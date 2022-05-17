@@ -88,6 +88,8 @@ export default (args, options) => {
           edit: article.edit,
           color: article.color,
           source: article.source,
+          createdAt: await article.getCreatedAt(),
+          updatedAt: await article.getUpdatedAt(),
           parent: article.parent.__gatsbyId,
           authors___NODE: article.authors.map((author) => author.__gatsbyId),
           internal: {

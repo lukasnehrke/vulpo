@@ -3,14 +3,15 @@ import { DocumentTextIcon } from "@heroicons/react/outline";
 import { PencilIcon } from "@heroicons/react/solid";
 import { ExclamationCircleIcon } from "@heroicons/react/solid";
 import clsx from "clsx";
-import { Link } from "gatsby";
 import * as React from "react";
 
 import Footer from "../footer";
+import Link from "../link";
 import Banner from "./Banner";
 
 interface Props {
   breadcrumbs: any[];
+  color?: string;
   pages: {
     title: string;
     slug: string;
@@ -23,7 +24,8 @@ interface Props {
   active: string;
   toc: string;
   content: any;
-  color?: string;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 const Lecture = (props: Props) => {
@@ -78,12 +80,29 @@ const Lecture = (props: Props) => {
           </a>
         </aside>
         <article className="lecture-main">
-          <div className="prose dark:prose-invert max-w-none pb-8 border-b border-slate-200 overflow-hidden">
+          <div className="prose dark:prose-invert max-w-none mb-4 pb-4 border-b border-slate-200 overflow-hidden">
             {props.content}
           </div>
           <footer>
+            <p className="text-slate-700 text-sm">
+              {props.createdAt && (
+                <span>
+                  Veröffentlicht am {props.createdAt}.
+                  {props.updatedAt && props.createdAt !== props.updatedAt && (
+                    <span> Zuletzt aktualisiert am {props.updatedAt}.</span>
+                  )}
+                </span>
+              )}
+            </p>
+            <p className="text-slate-700 text-sm">
+              Sofern nicht anders angegeben, sind Bilder und Texte in diesem Artikel unter{" "}
+              <Link className="text-sky-600" to="https://creativecommons.org/licenses/by-sa/4.0" blank>
+                CC BY-SA 4.0
+              </Link>{" "}
+              lizenziert.
+            </p>
             {props.authors && props.authors.length > 0 && (
-              <ul className="pt-6">
+              <ul className="pt-4">
                 {props.authors.map((author) => (
                   <li key={author.name} className="flex items-center mb-1">
                     <div

@@ -1,8 +1,11 @@
 import { generateMdx, generateToc } from "../mdx";
+import { getCreatedAt, getLastModified } from "../utils";
 import { Page, PageArgs, PageConfig } from "./page";
 
 export interface ArticleConfig extends PageConfig {
   source: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export class Article extends Page<ArticleConfig> {
@@ -20,5 +23,19 @@ export class Article extends Page<ArticleConfig> {
 
   get source(): string {
     return this.config.source;
+  }
+
+  async getCreatedAt(): Promise<Date | undefined> {
+    if (this.config.createdAt) {
+      return new Date(this.config.createdAt);
+    }
+    return getCreatedAt(this.source);
+  }
+
+  async getUpdatedAt(): Promise<Date | undefined> {
+    if (this.config.updatedAt) {
+      return new Date(this.config.updatedAt);
+    }
+    return getLastModified(this.source);
   }
 }

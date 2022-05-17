@@ -60,6 +60,8 @@ export default (args) => {
         edit: { type: "String" },
         color: { type: "String" },
         source: { type: "String!" },
+        createdAt: { type: "Date!" },
+        updatedAt: { type: "Date!" },
         content: {
           type: "String!",
           async resolve(node) {

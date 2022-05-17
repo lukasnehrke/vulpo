@@ -16,6 +16,8 @@ interface Props {
       color?: string;
       toc: string;
       content: string;
+      createdAt: string;
+      updatedAt: string;
       parent: {
         title: string;
         url: string;
@@ -38,6 +40,7 @@ interface Props {
 
 const Article = ({ data }: Props) => {
   const article = data.lexiconArticlePage;
+  console.log(article);
 
   return (
     <>
@@ -59,6 +62,8 @@ const Article = ({ data }: Props) => {
         active={article.slug}
         toc={article.toc}
         content={<MDX body={article.content} />}
+        createdAt={new Date(article.createdAt).toLocaleDateString("de-DE")}
+        updatedAt={new Date(article.updatedAt).toLocaleDateString("de-DE")}
       />
     </>
   );
@@ -73,6 +78,8 @@ export const query = graphql`
       edit
       color
       toc
+      createdAt
+      updatedAt
       parent {
         ... on LexiconLesson {
           title
