@@ -5,7 +5,7 @@ import { ExclamationCircleIcon } from "@heroicons/react/solid";
 import clsx from "clsx";
 import * as React from "react";
 
-import Footer from "../footer";
+import Footer from "../Footer";
 import Link from "../link";
 import Banner from "./Banner";
 

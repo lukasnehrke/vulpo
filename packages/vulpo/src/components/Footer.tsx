@@ -44,16 +44,17 @@ const groups = [
 ];
 
 const Footer = () => {
-  const license = (
-    <Link href="https://github.com/ritsyx-nosfus/vulpo/blob/main/LICENSE" blank>
-      AGPLv3.0
+  const mit = (
+    <Link href="https://github.com/lukasnehrke/vulpo/blob/main/LICENSE" blank>
+      MIT Lizenz
     </Link>
   );
   const github = (
-    <Link to="https://github.com/ritsyx-nosfus/vulpo" blank>
-      ritsyx-nosfus/vulpo
+    <Link to="https://github.com/lukasnehrke/vulpo" blank>
+      lukasnehrke/vulpo
     </Link>
   );
+
   return (
     <>
       <div className="px-4 py-4 bg-[#0d1f39]">
@@ -87,8 +88,7 @@ const Footer = () => {
           <img className="w-8 h-8 mb-1" src={logo} alt="Logo" />
           <p className="font-medium">Freie Bildung</p>
           <p>
-            Vulpo ist freie Software und unter {license} lizenziert. Der Quellcode ist auf GitHub unter {github}{" "}
-            verfügbar.
+            Vulpo ist freie Software und steht unter der {mit}. Der Quellcode ist auf GitHub unter {github} verfügbar.
           </p>
           <p className="mt-3 text-slate-600 dark:text-slate-400">
             &copy; {new Date().getFullYear()} Vulpo Contributors

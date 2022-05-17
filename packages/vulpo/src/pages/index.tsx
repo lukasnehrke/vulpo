@@ -2,7 +2,7 @@ import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import * as React from "react";
 
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import CategoryList from "../components/learn/categories";
 import SEO from "../components/seo";
 
