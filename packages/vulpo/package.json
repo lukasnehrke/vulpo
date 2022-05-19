@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@headlessui/react": "1.6.1",
+    "@headlessui/react": "1.6.2",
     "@heroicons/react": "1.0.6",
     "@lukasnehrke/gatsby-lexicon-plugin": "0.0.1",
     "@mdx-js/mdx": "2.1.1",
