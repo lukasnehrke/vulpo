@@ -110,7 +110,7 @@ const Lecture = (props: Props) => {
                 <div className="flex-1 basis-2/4 order-1">
                   <span className="text-sm font-medium">Zurück zu</span>
                   <br />
-                  <Link to={props.previous.url} class="text-sky-600 text-2xl leading-tight">
+                  <Link to={props.previous.url} class="text-theme text-2xl leading-tight">
                     {props.previous.title}
                   </Link>
                 </div>
@@ -119,7 +119,7 @@ const Lecture = (props: Props) => {
                 <div className="flex-1 basis-2/4 order-2 text-right">
                   <span className="text-sm font-medium">Weiter zu</span>
                   <br />
-                  <Link to={props.next.url} class="text-sky-600 text-2xl leading-tight">
+                  <Link to={props.next.url} class="text-theme text-2xl leading-tight">
                     {props.next.title}
                   </Link>
                 </div>

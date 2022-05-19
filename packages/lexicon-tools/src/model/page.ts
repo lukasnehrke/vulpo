@@ -64,7 +64,6 @@ export abstract class Page<T extends PageConfig> {
 
   get next(): Page<PageConfig> | undefined {
     const index = this.parent.pages.indexOf(this);
-    console.log(this.slug, index, this.parent.pages.length);
     if (index === -1 || index === this.parent.pages.length - 1) return undefined;
     return this.parent.pages[index + 1];
   }

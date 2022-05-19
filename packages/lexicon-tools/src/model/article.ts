@@ -13,14 +13,6 @@ export class Article extends Page<ArticleConfig> {
     super(args);
   }
 
-  static async generateMdx(source: string) {
-    return generateMdx({ source });
-  }
-
-  static async generateToc(source: string) {
-    return generateToc({ source });
-  }
-
   get source(): string {
     return this.config.source;
   }
@@ -37,5 +29,13 @@ export class Article extends Page<ArticleConfig> {
       return new Date(this.config.updatedAt);
     }
     return getLastModified(this.source);
+  }
+
+  async build() {
+    return generateMdx({ source: this.source });
+  }
+
+  async buildTOC({ depth }: { depth: number }) {
+    return generateToc({ source: this.source }, depth);
   }
 }

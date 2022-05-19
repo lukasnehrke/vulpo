@@ -20,9 +20,10 @@ export const generateMdx = async (options: CompileOptions) => {
   return String(output.value);
 };
 
-export const generateToc = async (options: CompileOptions) => {
+export const generateToc = async (options: CompileOptions, depth: number) => {
   const value = await readFile(options.source, "utf8");
-  const ast = toc(createProcessor(createOptions()).parse({ path: options.source, value }) as any);
+  const opts = { maxDepth: depth as any };
+  const ast = toc(createProcessor(createOptions()).parse({ path: options.source, value }) as any, opts);
   return toHtml(toHast(ast.map as any)!);
 };
 

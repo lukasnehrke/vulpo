@@ -1,6 +1,6 @@
 import { Article, Category, Lesson, createLexicon } from "@lukasnehrke/lexicon-tools";
 
-export const articles = {};
+export const nodes = {};
 
 /**
  * @param args {import("gatsby").SourceNodesArgs}
@@ -76,8 +76,6 @@ export default async (args, options) => {
       edit: article.edit,
       color: article.color,
       source: article.source,
-      createdAt: await article.getCreatedAt(),
-      updatedAt: await article.getUpdatedAt(),
       authors___NODE: article.authors.map((author) => author.__gatsbyId),
       parent: article.parent.__gatsbyId,
       children: [],
@@ -105,7 +103,7 @@ export default async (args, options) => {
     }
     if (obj instanceof Article) {
       obj.__gatsbyId = args.createNodeId("LexiconArticle >>> " + obj.path);
-      articles[obj.__gatsbyId] = obj;
+      nodes[obj.__gatsbyId] = obj;
       return await createArticleNode(obj);
     }
   };
