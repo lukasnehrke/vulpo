@@ -1,5 +1,7 @@
 import { Article } from "@lukasnehrke/lexicon-tools";
 
+import { articles } from "./source-nodes.js";
+
 /** @param args {import("gatsby").CreateSchemaCustomizationArgs} */
 export default (args) => {
   args.actions.createTypes([
@@ -60,8 +62,24 @@ export default (args) => {
         edit: { type: "String" },
         color: { type: "String" },
         source: { type: "String!" },
-        createdAt: { type: "Date!" },
-        updatedAt: { type: "Date!" },
+        createdAt: { type: "Date" },
+        updatedAt: { type: "Date" },
+        previous: {
+          type: "LexiconArticlePage",
+          async resolve(node, args, context) {
+            const id = articles[node.id].previous?.__gatsbyId;
+            if (id) return context.nodeModel.getNodeById({ id });
+            return null;
+          },
+        },
+        next: {
+          type: "LexiconArticlePage",
+          async resolve(node, args, context) {
+            const id = articles[node.id].next?.__gatsbyId;
+            if (id) return context.nodeModel.getNodeById({ id });
+            return null;
+          },
+        },
         content: {
           type: "String!",
           async resolve(node) {

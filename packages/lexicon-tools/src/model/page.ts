@@ -45,6 +45,10 @@ export abstract class Page<T extends PageConfig> {
     return this.parent.config.description;
   }
 
+  get color(): string | undefined {
+    return this.parent.color;
+  }
+
   get url(): string {
     const pages = this.parent.config.pages;
     if (pages && pages.length > 0 && pages[0] === this.config.slug) {
@@ -58,8 +62,17 @@ export abstract class Page<T extends PageConfig> {
     return `${this.lexicon.options.edit}/${this.path}`;
   }
 
-  get color(): string | undefined {
-    return this.parent.color;
+  get next(): Page<PageConfig> | undefined {
+    const index = this.parent.pages.indexOf(this);
+    console.log(this.slug, index, this.parent.pages.length);
+    if (index === -1 || index === this.parent.pages.length - 1) return undefined;
+    return this.parent.pages[index + 1];
+  }
+
+  get previous(): Page<PageConfig> | undefined {
+    const index = this.parent.pages.indexOf(this);
+    if (index === -1 || index === 0) return undefined;
+    return this.parent.pages[index - 1];
   }
 
   get authors(): Author[] {

@@ -1,8 +1,8 @@
 import { readFile, readdir } from "fs/promises";
-import yaml from "js-yaml";
-import path from "path";
+import * as yaml from "js-yaml";
+import * as path from "path";
 
-import { Author } from "../model/author";
+import { Author } from "../model";
 import { isDirectory } from "../utils";
 import { BuildOptions } from "./types";
 
@@ -39,7 +39,7 @@ export const buildAuthor = async (file: string, options: BuildOptions): Promise<
     (yaml.loadAll(content) as any[]).map(async (config) => {
       if (!config.slug) config.slug = slug;
       const author = new Author(config);
-      await options.hooks.onAuthorCreate(author);
+      // await options.hooks.onAuthorUpdate(author);
       return author;
     })
   );

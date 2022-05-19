@@ -1,12 +1,9 @@
-import fs from "fs";
+import * as fs from "fs";
 import { readdir } from "fs/promises";
-import yaml from "js-yaml";
-import path from "path";
+import * as yaml from "js-yaml";
+import * as path from "path";
 
-import { Article } from "../model/article";
-import { Category } from "../model/category";
-import { Lesson } from "../model/lesson";
-import { Lexicon } from "../model/lexicon";
+import { Article, Category, Lesson, Lexicon } from "../model";
 import { isChildOrParent, isFile } from "../utils";
 import { BuildOptions } from "./types";
 
@@ -27,8 +24,6 @@ export const buildLexicon = async (source: string, change: string, lexicon: Lexi
         parent: categories.length > 0 ? categories[categories.length - 1] : undefined,
       });
 
-      await options.hooks.onCategoryInit(category);
-
       categories.push(category);
 
       const children = await next(dir);
@@ -36,7 +31,7 @@ export const buildLexicon = async (source: string, change: string, lexicon: Lexi
       category.childLessons = children.filter((child) => child instanceof Lesson);
 
       categories.pop();
-      await options.hooks.onCategoryCreate(category);
+      change && (await options.hooks.onCategoryUpdate(category));
       return category;
     }
 
@@ -55,11 +50,9 @@ export const buildLexicon = async (source: string, change: string, lexicon: Lexi
         parent: categories[categories.length - 1],
       });
 
-      await options.hooks.onLessonInit(lesson);
-
       currentLesson = lesson;
       lesson.pages = await next(dir);
-      await options.hooks.onLessonCreate(lesson);
+      change && (await options.hooks.onLessonUpdate(lesson));
 
       currentLesson = null;
       return lesson;
@@ -85,7 +78,7 @@ export const buildLexicon = async (source: string, change: string, lexicon: Lexi
         parent: currentLesson,
       });
 
-      await options.hooks.onArticleCreate(article);
+      change && (await options.hooks.onArticleUpdate(article));
       return article;
     }
 
@@ -118,5 +111,5 @@ export const buildLexicon = async (source: string, change: string, lexicon: Lexi
     };
   };
 
-  await traverse(source);
+  return (await traverse(source)) as Category;
 };

@@ -44,6 +44,10 @@ export class Category {
     return this.config.slug;
   }
 
+  get children(): (Category | Lesson)[] {
+    return [...this.childCategories, ...this.childLessons];
+  }
+
   get categories(): Category[] {
     const categories = [];
     let category = this.parent;

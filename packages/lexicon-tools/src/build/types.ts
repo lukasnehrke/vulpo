@@ -1,14 +1,11 @@
-import { Article } from "../model/article";
-import { Author } from "../model/author";
-import { Category } from "../model/category";
-import { Lesson } from "../model/lesson";
+import { Article, Author, Category, Lesson } from "../model";
 
 export type BuildOptions = {
   /** Log Hooks */
   reporter: Reporter;
 
   /** Build hooks. */
-  hooks: PluginHooks<any, any, any, any>;
+  hooks: Hooks;
 };
 
 export type Reporter = {
@@ -25,40 +22,28 @@ export type Reporter = {
   warn: (message: string) => void;
 };
 
-export type PluginHooks<HAuthor, HCategory, HLesson, HArticle> = {
+export type Hooks = {
   /**
-   * Called when an author has been created.
-   * @param author The created author object.
+   * Called when an author has been updated.
+   * @param author The updated author object.
    */
-  onAuthorCreate: (author: Author) => Promise<void>;
+  onAuthorUpdate: (author: Author) => Promise<void>;
 
   /**
-   * Called when a category has been initialized.
-   * @param author The created category object.
+   * Called when a category has been updated.
+   * @param author The updated category object.
    */
-  onCategoryInit: (category: Category) => Promise<void>;
+  onCategoryUpdate: (category: Category) => Promise<void>;
 
   /**
-   * Called when a category has been created.
-   * @param author The created category object.
+   * Called when a lesson has been updated.
+   * @param author The updated lesson object.
    */
-  onCategoryCreate: (category: Category) => Promise<void>;
+  onLessonUpdate: (lesson: Lesson) => Promise<void>;
 
   /**
-   * Called when a lesson has been initialized.
-   * @param author The created lesson object.
+   * Called when an article has been updated.
+   * @param author The updated article object.
    */
-  onLessonInit: (lesson: Lesson) => Promise<void>;
-
-  /**
-   * Called when a lesson has been created.
-   * @param author The created lesson object.
-   */
-  onLessonCreate: (lesson: Lesson) => Promise<void>;
-
-  /**
-   * Called when an article has been created.
-   * @param author The created article object.
-   */
-  onArticleCreate: (article: Article) => Promise<void>;
+  onArticleUpdate: (article: Article) => Promise<void>;
 };

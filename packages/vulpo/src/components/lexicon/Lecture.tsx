@@ -12,6 +12,14 @@ import Banner from "./Banner";
 interface Props {
   breadcrumbs: any[];
   color?: string;
+  next?: {
+    title: string;
+    url: string;
+  };
+  previous?: {
+    title: string;
+    url: string;
+  };
   pages: {
     title: string;
     slug: string;
@@ -27,6 +35,19 @@ interface Props {
   createdAt?: string;
   updatedAt?: string;
 }
+
+const Author = ({ name }: { name: string }) => (
+  <div className="flex items-center mb-1">
+    <div className="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white" aria-hidden="true">
+      {name.split(" ")[0][0]}
+      {name.split(" ")[1][0]}
+    </div>
+    <div className="flex flex-col justify-content px-3">
+      <p className="text-xs leading-none text-slate-500 dark:text-slate-400">Autor:in</p>
+      <p className="text-xl font-medium leading-tight dark:text-white">{name}</p>
+    </div>
+  </div>
+);
 
 const Lecture = (props: Props) => {
   const style = props.color ? { ["--theme-color" as any]: props.color } : {};
@@ -80,10 +101,39 @@ const Lecture = (props: Props) => {
           </a>
         </aside>
         <article className="lecture-main">
-          <div className="prose dark:prose-invert max-w-none mb-4 pb-4 border-b border-slate-200 overflow-hidden">
+          <div className="prose dark:prose-invert max-w-none mb-2 pb-4 border-b border-slate-200 overflow-hidden">
             {props.content}
           </div>
           <footer>
+            <nav className="mb-3 flex">
+              {props.previous && (
+                <div className="flex-1 basis-2/4 order-1">
+                  <span className="text-sm font-medium">Zurück zu</span>
+                  <br />
+                  <Link to={props.previous.url} class="text-sky-600 text-2xl leading-tight">
+                    {props.previous.title}
+                  </Link>
+                </div>
+              )}
+              {props.next && (
+                <div className="flex-1 basis-2/4 order-2 text-right">
+                  <span className="text-sm font-medium">Weiter zu</span>
+                  <br />
+                  <Link to={props.next.url} class="text-sky-600 text-2xl leading-tight">
+                    {props.next.title}
+                  </Link>
+                </div>
+              )}
+            </nav>
+            {props.authors && props.authors.length > 0 && (
+              <ul className="my-4">
+                {props.authors.map((author) => (
+                  <li key={author.name}>
+                    <Author name={author.name} />
+                  </li>
+                ))}
+              </ul>
+            )}
             <p className="text-slate-700 text-sm">
               {props.createdAt && (
                 <span>
@@ -101,25 +151,6 @@ const Lecture = (props: Props) => {
               </Link>{" "}
               lizenziert.
             </p>
-            {props.authors && props.authors.length > 0 && (
-              <ul className="pt-4">
-                {props.authors.map((author) => (
-                  <li key={author.name} className="flex items-center mb-1">
-                    <div
-                      className="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white"
-                      aria-hidden="true"
-                    >
-                      {author.name.split(" ")[0][0]}
-                      {author.name.split(" ")[1][0]}
-                    </div>
-                    <div className="flex flex-col justify-content px-3">
-                      <p className="text-xs leading-none text-slate-500 dark:text-slate-400">Autor:in</p>
-                      <p className="text-lg font-medium leading-tight dark:text-white">{author.name}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            )}
           </footer>
         </article>
         <aside className="lecture-side">

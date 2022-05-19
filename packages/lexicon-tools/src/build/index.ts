@@ -1,8 +1,8 @@
-import chokidar from "chokidar";
-import fs from "fs";
-import path from "path";
+import * as chokidar from "chokidar";
+import * as fs from "fs";
+import * as path from "path";
 
-import { Lexicon } from "../model/lexicon";
+import { Category, Lexicon } from "../model";
 import { isDirectory } from "../utils";
 import { buildAuthors } from "./authors";
 import { buildLexicon } from "./lexicon";
@@ -10,12 +10,10 @@ import { BuildOptions } from "./types";
 
 const defaultOptions: Partial<BuildOptions> = {
   hooks: {
-    onAuthorCreate: async () => {},
-    onCategoryInit: async () => {},
-    onCategoryCreate: async () => {},
-    onLessonInit: async () => {},
-    onLessonCreate: async () => {},
-    onArticleCreate: async () => {},
+    onAuthorUpdate: async () => {},
+    onCategoryUpdate: async () => {},
+    onLessonUpdate: async () => {},
+    onArticleUpdate: async () => {},
   },
   reporter: {
     info: (args) => console.info(args),
@@ -23,7 +21,7 @@ const defaultOptions: Partial<BuildOptions> = {
   },
 };
 
-export const build = async (lexicon: Lexicon, options: BuildOptions): Promise<void> => {
+export const build = async (lexicon: Lexicon, options: BuildOptions): Promise<Category[]> => {
   const opts = { ...defaultOptions, ...options };
 
   if (!isDirectory(lexicon.directory)) {
@@ -36,13 +34,13 @@ export const build = async (lexicon: Lexicon, options: BuildOptions): Promise<vo
   }
 
   const source = path.resolve(lexicon.directory, "de");
-  await buildLexicon(source, "/", lexicon, opts);
+  return [await buildLexicon(source, "/", lexicon, opts)];
 };
 
-export const watch = async (lexicon: Lexicon, options: BuildOptions): Promise<void> => {
+export const watch = async (lexicon: Lexicon, options: BuildOptions): Promise<Category[]> => {
   const opts = { ...defaultOptions, ...options };
   const watcher = chokidar.watch([lexicon.directory], { ignoreInitial: true });
-  await build(lexicon, options);
+  const root = await build(lexicon, options);
 
   watcher.on("change", async (file) => {
     const dir = fs.lstatSync(file).isDirectory() ? file : path.join(file, "..");
@@ -52,4 +50,6 @@ export const watch = async (lexicon: Lexicon, options: BuildOptions): Promise<vo
       await buildLexicon(path.resolve(lexicon.directory, "de"), dir, lexicon, opts);
     }
   });
+
+  return root;
 };
