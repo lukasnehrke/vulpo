@@ -6,7 +6,8 @@
   ],
   "scripts": {
     "format": "prettier --write .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "patch-package"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,md,html,css,yaml,json}": "prettier --write"
