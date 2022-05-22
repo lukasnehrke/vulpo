@@ -1,7 +1,6 @@
-import type { Plugin } from "unified";
 import { visit } from "unist-util-visit";
 
-export default function remarkDirectives(): Plugin {
+export default function remarkDirectives() {
   return (tree) => {
     visit(tree, (node) => {
       if (["textDirective", "leafDirective", "containerDirective"].includes(node.type)) {

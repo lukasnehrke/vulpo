@@ -25,8 +25,11 @@ interface Props {
         title: string;
         url: string;
       }[];
-      children: {
-        __typename: string;
+      childCategories: {
+        title: string;
+        url: string;
+      }[];
+      childLessons: {
         title: string;
         url: string;
       }[];
@@ -44,31 +47,27 @@ interface Props {
 const Category = ({ data }: Props) => {
   const category = data.lexiconCategory;
 
-  const categories = category.children
-    .filter((c) => c.__typename === "LexiconCategory")
-    .map((c) => (
-      <li key={c.url}>
-        <Link to={c.url} className="flex items-center px-4 py-2 h-full w-full hover:bg-sky-100 dark:hover:bg-slate-600">
-          <div className="rounded-full bg-zinc-400 h-10 w-10 flex items-center justify-center mr-3">
-            <FolderIcon className="h-6 w-6 text-white" />
-          </div>
-          <span className="text-slate-800 dark:text-slate-200 truncate">{c.title}</span>
-        </Link>
-      </li>
-    ));
+  const categories = category.childCategories.map((c) => (
+    <li key={c.url}>
+      <Link to={c.url} className="flex items-center px-4 py-2 h-full w-full hover:bg-sky-100 dark:hover:bg-slate-600">
+        <div className="rounded-full bg-zinc-400 h-10 w-10 flex items-center justify-center mr-3">
+          <FolderIcon className="h-6 w-6 text-white" />
+        </div>
+        <span className="text-slate-800 dark:text-slate-200 truncate">{c.title}</span>
+      </Link>
+    </li>
+  ));
 
-  const lessons = category.children
-    .filter((c) => c.__typename === "LexiconLesson")
-    .map((c) => (
-      <li key={c.url}>
-        <Link to={c.url} className="flex items-center px-4 py-2 h-full w-full hover:bg-sky-100 dark:hover:bg-slate-600">
-          <div className="rounded-full bg-zinc-400 h-10 w-10 flex items-center justify-center mr-3">
-            <DocumentTextIcon className="h-6 w-6 text-white" />
-          </div>
-          <span className="text-slate-800 dark:text-slate-200 truncate">{c.title}</span>
-        </Link>
-      </li>
-    ));
+  const lessons = category.childLessons.map((c) => (
+    <li key={c.url}>
+      <Link to={c.url} className="flex items-center px-4 py-2 h-full w-full hover:bg-sky-100 dark:hover:bg-slate-600">
+        <div className="rounded-full bg-zinc-400 h-10 w-10 flex items-center justify-center mr-3">
+          <DocumentTextIcon className="h-6 w-6 text-white" />
+        </div>
+        <span className="text-slate-800 dark:text-slate-200 truncate">{c.title}</span>
+      </Link>
+    </li>
+  ));
 
   const breadcrumbs = [...category.categories, { root: category.root, title: category.title, url: category.url }];
 
@@ -128,16 +127,13 @@ export const query = graphql`
         title
         url
       }
-      children {
-        __typename
-        ... on LexiconCategory {
-          title
-          url
-        }
-        ... on LexiconLesson {
-          title
-          url
-        }
+      childCategories {
+        title
+        url
+      }
+      childLessons {
+        title
+        url
       }
     }
     allLexiconLesson(limit: 5) {

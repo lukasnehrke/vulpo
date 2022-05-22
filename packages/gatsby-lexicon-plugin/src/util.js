@@ -2,19 +2,7 @@ import { exec } from "child_process";
 import * as fs from "fs";
 import * as path from "path";
 
-export const isDirectory = (file?: string) => {
-  return file && fs.existsSync(file) && fs.lstatSync(file).isDirectory();
-};
-
-export const isFile = (file?: string) => {
-  return file && fs.existsSync(file) && fs.lstatSync(file).isFile();
-};
-
-export const isChildOrParent = (child1: string, child2: string) => {
-  return !path.relative(child1, child2).startsWith("..") || !path.relative(child2, child1).startsWith("..");
-};
-
-export const getLastModified = (source: string): Promise<Date> => {
+export const getLastModified = (source) => {
   return new Promise((resolve, reject) => {
     const cwd = path.resolve(source, "..");
     exec(`git log --date iso  -n 1 --format="%ad" .`, { cwd }, (err, stdout) => {
@@ -31,9 +19,9 @@ export const getLastModified = (source: string): Promise<Date> => {
   });
 };
 
-export const getCreatedAt = (source: string): Promise<Date> => {
+export const getCreatedAt = (source) => {
   return new Promise((resolve, reject) => {
-    if (!isFile(source)) {
+    if (!fs.existsSync(source)) {
       return reject();
     }
     exec(`git log --follow --format=%ad --date iso ${source} | tail -1`, (err, stdout) => {

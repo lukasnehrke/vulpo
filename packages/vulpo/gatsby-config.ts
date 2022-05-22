@@ -15,6 +15,7 @@ const config: GatsbyConfig = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     "gatsby-plugin-sitemap",
+    "gatsby-transformer-yaml",
     {
       resolve: "gatsby-plugin-react-helmet-canonical-urls",
       options: {
@@ -43,11 +44,15 @@ const config: GatsbyConfig = {
       options: { name: "images", path: path.resolve("src/images") },
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: { name: "lexicon", path: path.resolve("../../lexicon") },
+    },
+    {
       resolve: "gatsby-lexicon-plugin-wrapper",
       options: {
         lexicon: {
           directory: path.resolve("../../lexicon"),
-          edit: "https://github.com/lukasnehrke/vulpo/tree/main/lexicon/de",
+          edit: "https://github.com/lukasnehrke/vulpo/tree/main/lexicon",
         },
         template: {
           category: path.resolve("./src/template/category.tsx"),

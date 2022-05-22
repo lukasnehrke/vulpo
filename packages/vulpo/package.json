@@ -8,8 +8,7 @@
     "dev": "gatsby develop",
     "serve": "gatsby serve",
     "start": "gatsby develop",
-    "typecheck": "tsc --noEmit",
-    "postinstall": "cd ../lexicon-tools && yarn build"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@headlessui/react": "1.6.2",
@@ -34,8 +33,9 @@
     "gatsby-plugin-react-helmet-canonical-urls": "1.4.0",
     "gatsby-plugin-sharp": "4.14.1",
     "gatsby-plugin-sitemap": "5.14.0",
-    "gatsby-source-filesystem": "4.14.0",
+    "gatsby-source-filesystem": "^4.14.0",
     "gatsby-transformer-sharp": "4.14.0",
+    "gatsby-transformer-yaml": "^4.14.0",
     "postcss": "8.4.14",
     "react": "18.1.0",
     "react-dom": "18.1.0",

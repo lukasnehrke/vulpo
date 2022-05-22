@@ -1,6 +1,6 @@
-export { default as createPages } from "./src/create-pages.js";
-export { default as sourceNodes } from "./src/source-nodes.js";
-export { default as createSchemaCustomization } from "./src/create-schema-customization.js";
+export { createPages } from "./src/create-pages.js";
+export { createSchemaCustomization } from "./src/extend/index.js";
+export { unstable_shouldOnCreateNode, onCreateNode } from "./src/on-create-node.js";
 
 // prettier-ignore
 export const pluginOptionsSchema = ({ Joi }) => {

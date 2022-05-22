@@ -8,7 +8,7 @@ import SEO from "../components/seo";
 
 interface Props {
   data: {
-    lexiconArticlePage: {
+    lexiconArticle: {
       slug: string;
       title: string;
       description?: string;
@@ -26,14 +26,14 @@ interface Props {
         title: string;
         url: string;
       };
-      parent: {
+      lesson: {
         title: string;
         url: string;
         categories: {
           title: string;
           url: string;
         }[];
-        children: {
+        pages: {
           title: string;
           slug: string;
           url: string;
@@ -47,7 +47,7 @@ interface Props {
 }
 
 const Article = ({ data }: Props) => {
-  const article = data.lexiconArticlePage;
+  const article = data.lexiconArticle;
   return (
     <>
       <SEO title={article.title} description={article.description} />
@@ -60,11 +60,11 @@ const Article = ({ data }: Props) => {
         />
       </Helmet>
       <Lecture
-        breadcrumbs={[...(article.parent.categories || []), { title: article.parent.title, url: article.parent.url }]}
+        breadcrumbs={[...(article.lesson.categories || []), { title: article.lesson.title, url: article.lesson.url }]}
         editUrl={article.edit}
         authors={article.authors}
         color={article.color}
-        pages={article.parent.children}
+        pages={article.lesson.pages}
         next={article.next}
         previous={article.previous}
         active={article.slug}
@@ -79,7 +79,7 @@ const Article = ({ data }: Props) => {
 
 export const query = graphql`
   query ($id: String!) {
-    lexiconArticlePage(id: { eq: $id }) {
+    lexiconArticle(id: { eq: $id }) {
       title
       slug
       content
@@ -96,21 +96,17 @@ export const query = graphql`
         title
         url
       }
-      parent {
-        ... on LexiconLesson {
+      lesson {
+        title
+        url
+        categories {
           title
           url
-          categories {
-            title
-            url
-          }
-          children {
-            ... on LexiconArticlePage {
-              title
-              slug
-              url
-            }
-          }
+        }
+        pages {
+          title
+          slug
+          url
         }
       }
       authors {

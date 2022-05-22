@@ -7,7 +7,7 @@ const query = `query {
       }
     }
   }
-  allLexiconArticlePage {
+  allLexiconArticle {
     edges {
       node {
         id
@@ -18,31 +18,36 @@ const query = `query {
 }`;
 
 /**
+ * Creates pages for each category and article.
+ *
  * @param args {import("gatsby").CreatePagesArgs}
  * @param options
+ *
+ * @see https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/#createPages
  */
-export default async (args, options) => {
-  if (options.template) {
-    const { data } = await args.graphql(query);
-    if (data) {
-      if (options.template.category) {
-        data.allLexiconCategory.edges.forEach(({ node }) => {
-          args.actions.createPage({
-            path: node.url.toLowerCase(),
-            component: options.template.category,
-            context: { id: node.id },
-          });
-        });
-      }
-      if (options.template.article) {
-        data.allLexiconArticlePage.edges.forEach(({ node }) => {
-          args.actions.createPage({
-            path: node.url.toLowerCase(),
-            component: options.template.article,
-            context: { id: node.id },
-          });
-        });
-      }
-    }
+export const createPages = async (args, options) => {
+  if (!options.template) return;
+
+  const { data } = await args.graphql(query);
+  if (!data) return;
+
+  if (options.template.category) {
+    data.allLexiconCategory.edges.forEach(({ node }) => {
+      args.actions.createPage({
+        path: node.url,
+        component: options.template.category,
+        context: { id: node.id },
+      });
+    });
+  }
+
+  if (options.template.article) {
+    data.allLexiconArticle.edges.forEach(({ node }) => {
+      args.actions.createPage({
+        path: node.url,
+        component: options.template.article,
+        context: { id: node.id },
+      });
+    });
   }
 };
