@@ -8,7 +8,8 @@
     "dev": "gatsby develop",
     "serve": "gatsby serve",
     "start": "gatsby develop",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "postinstall": "patch-package --patch-dir ../../patches"
   },
   "dependencies": {
     "@headlessui/react": "1.6.2",
