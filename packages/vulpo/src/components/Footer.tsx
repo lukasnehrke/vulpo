@@ -37,8 +37,8 @@ const groups = [
   {
     header: "Rechtliches",
     links: [
-      { name: "Impressum", href: "/docs/legal/imprint" },
-      { name: "Datenschutz", href: "/docs/legal/privacy" },
+      { name: "Impressum", href: "https://docs.vulpo.org/legal/imprint" },
+      { name: "Datenschutz", href: "https://docs.vulpo.org/legal/privacy" },
     ],
   },
 ];
