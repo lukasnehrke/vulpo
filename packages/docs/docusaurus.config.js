@@ -5,8 +5,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 module.exports = {
   title: "Vulpo",
   tagline: "E-Learning based on Markdown.",
-  url: "https://vulpo.org",
-  baseUrl: "/docs/",
+  url: "https://docs.vulpo.org",
+  baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
