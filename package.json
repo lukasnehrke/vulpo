@@ -7,7 +7,7 @@
   "scripts": {
     "format": "prettier --write .",
     "prepare": "husky install",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package && cd packages/vulpo && patch-package --patch-dir ../../patches"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,md,html,css,yaml,json}": "prettier --write"
