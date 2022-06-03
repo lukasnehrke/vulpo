@@ -8,10 +8,11 @@ import remarkDirective from "remark-directive";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 
+import remarkAssets from "./plugins/assets.js";
 import remarkDirectives from "./plugins/directives.js";
 
 const options = {
-  remarkPlugins: [remarkGfm, remarkMath, remarkDirective, remarkDirectives],
+  remarkPlugins: [remarkGfm, remarkMath, remarkDirective, remarkDirectives, remarkAssets],
   rehypePlugins: [rehypeKatex],
   jsx: false,
   useDynamicImport: true,
