@@ -7,7 +7,7 @@ import * as React from "react";
 
 import Footer from "../Footer";
 import Link from "../link";
-import Banner from "./Banner";
+import Banner from "./page/Banner";
 
 interface Props {
   breadcrumbs: any[];
@@ -53,7 +53,6 @@ const Lecture = (props: Props) => {
   const style = props.color ? { ["--theme-color" as any]: props.color } : {};
   return (
     <div style={style}>
-      {props.breadcrumbs && <Banner breadcrumbs={props.breadcrumbs} />}
       <div className="lecture">
         <aside className="lecture-nav">
           <div className="rounded shadow overflow-hidden mb-3 dark:bg-slate-700 dark:text-white dark:highlight-white/5">

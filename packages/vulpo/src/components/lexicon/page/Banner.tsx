@@ -2,7 +2,7 @@ import { ChevronRightIcon } from "@heroicons/react/solid";
 import { Link } from "gatsby";
 import * as React from "react";
 
-import GraduationCapIcon from "../icons/GraduationCap";
+import GraduationCapIcon from "../../icons/GraduationCap";
 
 interface Props {
   breadcrumbs: {

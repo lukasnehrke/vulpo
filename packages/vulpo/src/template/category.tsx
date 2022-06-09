@@ -4,7 +4,7 @@ import { graphql } from "gatsby";
 import * as React from "react";
 
 import GitHubIcon from "../components/icons/GithubIcon";
-import Banner from "../components/lexicon/Banner";
+import Banner from "../components/lexicon/page/Banner";
 import Link from "../components/link";
 import SEO from "../components/seo";
 

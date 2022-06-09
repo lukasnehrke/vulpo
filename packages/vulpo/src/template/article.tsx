@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 
 import Lecture from "../components/lexicon/Lecture";
 import MDX from "../components/lexicon/MDX";
+import PageLayout from "../components/lexicon/page/Layout";
 import SEO from "../components/seo";
 
 interface Props {
@@ -51,28 +52,30 @@ const Article = ({ data }: Props) => {
   return (
     <>
       <SEO title={article.title} description={article.description} />
-      <Helmet>
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css"
-          integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB"
-          crossOrigin="anonymous"
+      <PageLayout page={article as any}>
+        <Helmet>
+          <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css"
+            integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB"
+            crossOrigin="anonymous"
+          />
+        </Helmet>
+        <Lecture
+          breadcrumbs={[...(article.lesson.categories || []), { title: article.lesson.title, url: article.lesson.url }]}
+          editUrl={article.edit}
+          authors={article.authors}
+          color={article.color}
+          pages={article.lesson.pages}
+          next={article.next}
+          previous={article.previous}
+          active={article.slug}
+          toc={article.toc}
+          content={<MDX body={article.content} />}
+          createdAt={new Date(article.createdAt).toLocaleDateString("de-DE")}
+          updatedAt={new Date(article.updatedAt).toLocaleDateString("de-DE")}
         />
-      </Helmet>
-      <Lecture
-        breadcrumbs={[...(article.lesson.categories || []), { title: article.lesson.title, url: article.lesson.url }]}
-        editUrl={article.edit}
-        authors={article.authors}
-        color={article.color}
-        pages={article.lesson.pages}
-        next={article.next}
-        previous={article.previous}
-        active={article.slug}
-        toc={article.toc}
-        content={<MDX body={article.content} />}
-        createdAt={new Date(article.createdAt).toLocaleDateString("de-DE")}
-        updatedAt={new Date(article.updatedAt).toLocaleDateString("de-DE")}
-      />
+      </PageLayout>
     </>
   );
 };

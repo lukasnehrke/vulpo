@@ -1,2 +1,3 @@
 .firebase
 public
+gatsby-types.d.ts
