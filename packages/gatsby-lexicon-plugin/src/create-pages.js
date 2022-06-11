@@ -46,7 +46,7 @@ export const createPages = async (args, options) => {
       args.actions.createPage({
         path: node.url,
         component: options.template.article,
-        context: { id: node.id },
+        context: { id: node.id, isPage: true },
       });
     });
   }

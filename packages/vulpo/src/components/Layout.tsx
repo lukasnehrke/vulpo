@@ -1,6 +1,8 @@
+import { PageProps } from "gatsby";
 import * as React from "react";
 
 import Navbar from "./layout/Navbar";
+import PageLayout from "./lexicon/page/Layout";
 import Theme from "./theme";
 
 interface ILayoutContext {
@@ -25,15 +27,21 @@ interface Props {
   children: React.ReactNode;
 }
 
-const Layout = ({ children }: Props) => {
+const Layout = ({ data, pageContext, children }: Omit<PageProps<any, any>, "children"> & Props) => {
   const [isIconVisible, setIconVisible] = React.useState(false);
   const [isDrawerOpen, setDrawerOpen] = React.useState(false);
+
+  let getLayout = (page: React.ReactNode) => page;
+
+  if (pageContext.isPage) {
+    getLayout = (children: React.ReactNode) => <PageLayout page={data.lexiconArticle}>{children}</PageLayout>;
+  }
 
   return (
     <Theme>
       <LayoutContext.Provider value={{ isIconVisible, setIconVisible, isDrawerOpen, setDrawerOpen }}>
         <Navbar />
-        <main className="dark:bg-slate-900">{children}</main>
+        <main className="dark:bg-slate-900">{getLayout(children)}</main>
       </LayoutContext.Provider>
     </Theme>
   );

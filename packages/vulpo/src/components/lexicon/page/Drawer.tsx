@@ -43,7 +43,7 @@ const PageDrawer = ({ page }: { page: Queries.LexiconPage }) => {
                     });
                     return (
                       <li key={item.url} className="flex">
-                        <Link to={item.url} className={cl}>
+                        <Link to={item.url} className={cl} onClick={() => setDrawerOpen(false)}>
                           <div className="flex items-center justify-between">
                             <span>{item.title}</span>
                             <DocumentTextIcon className="w-5 h-5" />
