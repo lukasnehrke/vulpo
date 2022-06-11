@@ -37,16 +37,17 @@ const IndexPage = () => (
             <button className="rounded px-3 py-2 bg-orange-500 text-sm uppercase">Lexikon ansehen</button>
           </Link>
         </div>
-        <StaticImage
-          className="hidden lg:block"
-          src="../images/study.svg"
-          width={510}
-          height={400}
-          quality={95}
-          formats={["auto", "webp", "avif"]}
-          placeholder="none"
-          alt="Graduation Cap"
-        />
+        <div className="hidden lg:block">
+          <StaticImage
+            src="../images/study.svg"
+            width={510}
+            height={400}
+            quality={95}
+            formats={["auto", "webp", "avif"]}
+            placeholder="none"
+            alt="Graduation Cap"
+          />
+        </div>
       </div>
     </div>
 
