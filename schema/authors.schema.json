@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/lukasnehrke/vulpo/schema/authors.schema.json",
+  "title": "Authors",
+  "description": "A list of persons who contribute to a lexicon.",
+  "type": "object",
+  "required": ["authors"],
+  "properties": {
+    "authors": {
+      "type": "array",
+      "description": "A list of authors.",
+      "items": {
+        "type": "object",
+        "required": "name",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of this author"
+          },
+          "github": {
+            "type": "string",
+            "description": "The github username of this author"
+          }
+        }
+      }
+    }
+  }
+}

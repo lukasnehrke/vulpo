@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/lukasnehrke/vulpo/schema/category.schema.json",
+  "title": "Category",
+  "description": "A container for other categories and lessons.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The id of this category."
+    },
+    "slug": {
+      "type": "string",
+      "description": "The slug of this category."
+    },
+    "title": {
+      "type": "string",
+      "description": "The title of this category."
+    },
+    "aliases": {
+      "type": "array",
+      "description": "Alternative titles for this category.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "color": {
+      "type": "string",
+      "description": "The theme color of this category."
+    },
+    "url": {
+      "type": "boolean",
+      "description": "If the slug of this category should be part of the url."
+    }
+  }
+}

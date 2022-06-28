@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/lukasnehrke/vulpo/schema/lesson.schema.json",
+  "title": "Lesson",
+  "description": "A container for multiple pages",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The id of this lesson."
+    },
+    "slug": {
+      "type": "string",
+      "description": "The slug of this lesson."
+    },
+    "title": {
+      "type": "string",
+      "description": "The title of this lesson."
+    },
+    "description": {
+      "type": "string",
+      "description": "The description of this lesson."
+    },
+    "color": {
+      "type": "string",
+      "description": "The theme color of this lecture. Will be inherited if not specified."
+    },
+    "pages": {
+      "type": "array",
+      "description": "An ordered list of page titles that this lesson consists of.",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
