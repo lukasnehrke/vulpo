@@ -1,7 +1,7 @@
 {
-  "name": "vulpo",
-  "version": "0.0.0",
   "private": true,
+  "name": "web",
+  "version": "0.0.0",
   "scripts": {
     "build": "gatsby build",
     "clean": "gatsby clean",
@@ -9,7 +9,7 @@
     "serve": "gatsby serve",
     "start": "gatsby develop",
     "typecheck": "tsc --noEmit",
-    "postinstall": "patch-package --patch-dir ../../patches"
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@headlessui/react": "1.6.5",

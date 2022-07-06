@@ -14,8 +14,8 @@ interface Props {
       description?: string;
       edit?: string;
       color?: string;
-      toc: string;
-      content: string;
+      toc?: string;
+      content?: string;
       createdAt: string;
       updatedAt: string;
       next?: {
@@ -68,8 +68,7 @@ const Article = ({ data }: Props) => {
         next={article.next}
         previous={article.previous}
         active={article.slug}
-        toc={article.toc}
-        content={<MDX body={article.content} />}
+        content={""}
         createdAt={new Date(article.createdAt).toLocaleDateString("de-DE")}
         updatedAt={new Date(article.updatedAt).toLocaleDateString("de-DE")}
       />
@@ -82,10 +81,8 @@ export const query = graphql`
     lexiconArticle(id: { eq: $id }) {
       title
       slug
-      content
       edit
       color
-      toc
       createdAt
       updatedAt
       next {

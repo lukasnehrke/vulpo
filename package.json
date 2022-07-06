@@ -1,13 +1,15 @@
 {
-  "private": true,
-  "type": "module",
+  "name": "vulpo",
+  "packageManager": "yarn@3.2.1",
   "workspaces": [
+    "apps/*",
     "packages/*"
   ],
   "scripts": {
+    "dev": "yarn workspace web dev",
+    "dev:docs": "yarn workspace docs start",
     "format": "prettier --write .",
-    "prepare": "husky install",
-    "postinstall": "patch-package && cd packages/vulpo && patch-package --patch-dir ../../patches"
+    "prepare": "husky install"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,md,html,css,yaml,json}": "prettier --write"
