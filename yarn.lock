@@ -3385,7 +3385,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lukasnehrke/gatsby-lexicon-plugin@0.0.1, @lukasnehrke/gatsby-lexicon-plugin@workspace:packages/gatsby-lexicon-plugin":
+"@lukasnehrke/gatsby-lexicon-plugin@workspace:packages/gatsby-lexicon-plugin":
   version: 0.0.0-use.local
   resolution: "@lukasnehrke/gatsby-lexicon-plugin@workspace:packages/gatsby-lexicon-plugin"
   dependencies:
@@ -3403,31 +3403,6 @@ __metadata:
     gatsby: ^4.15.0
   languageName: unknown
   linkType: soft
-
-"@mdx-js/mdx@npm:2.1.2, @mdx-js/mdx@npm:^2.1.1":
-  version: 2.1.2
-  resolution: "@mdx-js/mdx@npm:2.1.2"
-  dependencies:
-    "@types/estree-jsx": ^0.0.1
-    "@types/mdx": ^2.0.0
-    astring: ^1.6.0
-    estree-util-build-jsx: ^2.0.0
-    estree-util-is-identifier-name: ^2.0.0
-    estree-walker: ^3.0.0
-    hast-util-to-estree: ^2.0.0
-    markdown-extensions: ^1.0.0
-    periscopic: ^3.0.0
-    remark-mdx: ^2.0.0
-    remark-parse: ^10.0.0
-    remark-rehype: ^10.0.0
-    unified: ^10.0.0
-    unist-util-position-from-estree: ^1.0.0
-    unist-util-stringify-position: ^3.0.0
-    unist-util-visit: ^4.0.0
-    vfile: ^5.0.0
-  checksum: ca4de4ea018a0af9e4bdd9fcd944654eeb7c4fd9c8abf6e239c681162d4f8d2252a0d2c140789ca95bd1323976df5b86ecd34d93a25c6411d99e8f8355f3be01
-  languageName: node
-  linkType: hard
 
 "@mdx-js/mdx@npm:^1.6.22":
   version: 1.6.22
@@ -3456,15 +3431,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mdx-js/react@npm:2.1.2":
+"@mdx-js/mdx@npm:^2.1.1":
   version: 2.1.2
-  resolution: "@mdx-js/react@npm:2.1.2"
+  resolution: "@mdx-js/mdx@npm:2.1.2"
   dependencies:
+    "@types/estree-jsx": ^0.0.1
     "@types/mdx": ^2.0.0
-    "@types/react": ">=16"
-  peerDependencies:
-    react: ">=16"
-  checksum: c1114c683403565f45366f43b3e71cd41f4f1c3f73147f447ba2517906400760139f315fe23220a3d633433d77d9a0a95753bb256b2cec392fb5c4a02947f25e
+    astring: ^1.6.0
+    estree-util-build-jsx: ^2.0.0
+    estree-util-is-identifier-name: ^2.0.0
+    estree-walker: ^3.0.0
+    hast-util-to-estree: ^2.0.0
+    markdown-extensions: ^1.0.0
+    periscopic: ^3.0.0
+    remark-mdx: ^2.0.0
+    remark-parse: ^10.0.0
+    remark-rehype: ^10.0.0
+    unified: ^10.0.0
+    unist-util-position-from-estree: ^1.0.0
+    unist-util-stringify-position: ^3.0.0
+    unist-util-visit: ^4.0.0
+    vfile: ^5.0.0
+  checksum: ca4de4ea018a0af9e4bdd9fcd944654eeb7c4fd9c8abf6e239c681162d4f8d2252a0d2c140789ca95bd1323976df5b86ecd34d93a25c6411d99e8f8355f3be01
   languageName: node
   linkType: hard
 
@@ -4569,13 +4557,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/fg-loadcss@npm:3.1.1":
-  version: 3.1.1
-  resolution: "@types/fg-loadcss@npm:3.1.1"
-  checksum: da2110742929787e4d280f213515d25a4fc8bface878d186e1c375796503e88471024fb35b39e3b247a670679df0a82169dbf5d6bf7d1ad6529e4ed46be4976b
-  languageName: node
-  linkType: hard
-
 "@types/get-port@npm:^3.2.0":
   version: 3.2.0
   resolution: "@types/get-port@npm:3.2.0"
@@ -4920,7 +4901,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:18.0.15, @types/react@npm:>=16":
+"@types/react@npm:*, @types/react@npm:18.0.15":
   version: 18.0.15
   resolution: "@types/react@npm:18.0.15"
   dependencies:
@@ -9737,13 +9718,6 @@ __metadata:
   dependencies:
     xml-js: ^1.6.11
   checksum: 2e6992a675a049511eef7bda8ca6c08cb9540cd10e8b275ec4c95d166228ec445a335fa8de990358759f248a92861e51decdcd32bf1c54737d5b7aed7c7ffe97
-  languageName: node
-  linkType: hard
-
-"fg-loadcss@npm:3.1.0":
-  version: 3.1.0
-  resolution: "fg-loadcss@npm:3.1.0"
-  checksum: d8471f4fb4044f1c94a7c44924acda800af0bc0518a6a5f18e88b9b3a2314fdce6900c86f8afb372913c37a695a6ced5b62afc45185edd687cb3b6b6ac7b7e6b
   languageName: node
   linkType: hard
 
@@ -20798,17 +20772,12 @@ __metadata:
   dependencies:
     "@headlessui/react": 1.6.5
     "@heroicons/react": 1.0.6
-    "@lukasnehrke/gatsby-lexicon-plugin": 0.0.1
-    "@mdx-js/mdx": 2.1.2
-    "@mdx-js/react": 2.1.2
     "@tailwindcss/typography": 0.5.2
-    "@types/fg-loadcss": 3.1.1
     "@types/react-helmet": 6.1.5
     "@types/react-instantsearch-dom": 6.12.3
     algoliasearch: 4.13.1
     autoprefixer: 10.4.7
     clsx: 1.2.1
-    fg-loadcss: 3.1.0
     gatsby: 4.17.2
     gatsby-plugin-gatsby-cloud: 4.17.0
     gatsby-plugin-image: 2.17.0

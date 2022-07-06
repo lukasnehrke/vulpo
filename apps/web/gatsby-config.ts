@@ -17,6 +17,10 @@ const config: GatsbyConfig = {
     "gatsby-plugin-sitemap",
     "gatsby-transformer-yaml",
     {
+      resolve: "gatsby-source-filesystem",
+      options: { name: "images", path: path.resolve("src/images") },
+    },
+    {
       resolve: "gatsby-plugin-react-helmet-canonical-urls",
       options: {
         siteUrl: "https://vulpo.org",
@@ -37,27 +41,6 @@ const config: GatsbyConfig = {
         display: "minimal-ui",
         orientation: "portrait-primary",
         icon: "src/images/logo.png",
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: { name: "images", path: path.resolve("src/images") },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: { name: "lexicon", path: path.resolve("../../lexicon") },
-    },
-    {
-      resolve: "gatsby-lexicon-plugin-wrapper",
-      options: {
-        lexicon: {
-          directory: path.resolve("../../lexicon"),
-          edit: "https://github.com/lukasnehrke/vulpo/tree/main/lexicon",
-        },
-        template: {
-          category: path.resolve("./src/template/category.tsx"),
-          article: path.resolve("./src/template/article.tsx"),
-        },
       },
     },
   ],
