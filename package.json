@@ -22,10 +22,12 @@
     "@types/react-dom": "18.0.6",
     "husky": "8.0.1",
     "lint-staged": "13.0.3",
-    "patch-package": "6.4.7",
     "prettier": "2.7.1",
     "tsm": "2.2.1",
     "typescript": "4.7.4",
     "uvu": "0.5.6"
+  },
+  "resolutions": {
+    "gatsby@4.17.2": "patch:gatsby@npm:4.17.2#.yarn/patches/gatsby-npm-4.17.2-33dd23dd82.patch"
   }
 }
