@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json.vulpo.org/category.schema.json",
+  "root": true,
+  "color": "#2962ff",
+  "title": "Mathematik",
+  "aliases": ["Mathe"]
+}

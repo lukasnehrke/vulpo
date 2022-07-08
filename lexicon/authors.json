@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json.vulpo.org/authors.schema.json",
+  "authors": [
+    {
+      "name": "Lukas Nehrke",
+      "slug": "lukasnehrke",
+      "github": "lukasnehrke"
+    }
+  ]
+}

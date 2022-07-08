@@ -16,10 +16,13 @@ const config: GatsbyConfig = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     "gatsby-plugin-sitemap",
-    "gatsby-transformer-yaml",
     {
       resolve: "gatsby-source-filesystem",
       options: { name: "images", path: path.resolve("src/images") },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: { name: "lexicon", path: path.resolve("../../lexicon") },
     },
     {
       resolve: "gatsby-plugin-react-helmet-canonical-urls",
@@ -42,6 +45,16 @@ const config: GatsbyConfig = {
         display: "minimal-ui",
         orientation: "portrait-primary",
         icon: "src/images/logo.png",
+      },
+    },
+    {
+      resolve: "@lukasnehrke/gatsby-lexicon-plugin",
+      options: {
+        edit: "https://github.com/lukasnehrke/vulpo/tree/main/lexicon",
+        template: {
+          category: path.resolve("./src/template/category.tsx"),
+          article: path.resolve("./src/template/article.tsx"),
+        },
       },
     },
   ],

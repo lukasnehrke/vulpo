@@ -13,6 +13,7 @@
   "dependencies": {
     "@headlessui/react": "1.6.5",
     "@heroicons/react": "1.0.6",
+    "@lukasnehrke/gatsby-lexicon-plugin": "0.0.1",
     "@tailwindcss/typography": "0.5.2",
     "@types/react-helmet": "6.1.5",
     "@types/react-instantsearch-dom": "6.12.3",
@@ -30,7 +31,6 @@
     "gatsby-plugin-sitemap": "5.17.0",
     "gatsby-source-filesystem": "4.17.0",
     "gatsby-transformer-sharp": "4.17.0",
-    "gatsby-transformer-yaml": "4.17.0",
     "postcss": "8.4.14",
     "react": "18.2.0",
     "react-dom": "18.2.0",

@@ -1,0 +1,5 @@
+{
+  "$schema": "https://json.vulpo.org/article.schema.json",
+  "title": "Grundlagen",
+  "description": "Das E/R-Modell ist ein semantisches Datenbankmodell, um Realweltausschnitte bzw. Benutzeranforderungen einfach und ohne Implementierungsdetails darzustellen."
+}

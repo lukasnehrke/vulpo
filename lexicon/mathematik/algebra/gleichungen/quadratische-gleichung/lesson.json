@@ -1,0 +1,5 @@
+{
+  "$schema": "https://json.vulpo.org/lesson.schema.json",
+  "title": "Quadratische Gleichung",
+  "pages": ["grundlagen", "mitternachtsformel"]
+}

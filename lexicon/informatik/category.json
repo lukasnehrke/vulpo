@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json.vulpo.org/category.schema.json",
+  "root": true,
+  "color": "#3b82f6",
+  "title": "Informatik",
+  "aliases": ["Computer Science", "IT"]
+}
