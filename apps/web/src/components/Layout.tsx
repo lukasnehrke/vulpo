@@ -41,7 +41,7 @@ const Layout = ({ data, pageContext, children }: Omit<PageProps<any, any>, "chil
     <Theme>
       <LayoutContext.Provider value={{ isIconVisible, setIconVisible, isDrawerOpen, setDrawerOpen }}>
         <Navbar />
-        <main className="dark:bg-slate-900">{getLayout(children)}</main>
+        <div className="dark:bg-slate-900">{getLayout(children)}</div>
       </LayoutContext.Provider>
     </Theme>
   );

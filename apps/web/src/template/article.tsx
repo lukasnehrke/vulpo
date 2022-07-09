@@ -68,7 +68,8 @@ const Article = ({ data }: Props) => {
         next={article.next}
         previous={article.previous}
         active={article.slug}
-        content={""}
+        content={<MDX body={article.content} />}
+        toc={article.toc}
         createdAt={new Date(article.createdAt).toLocaleDateString("de-DE")}
         updatedAt={new Date(article.updatedAt).toLocaleDateString("de-DE")}
       />
@@ -83,6 +84,8 @@ export const query = graphql`
       slug
       edit
       color
+      content
+      toc
       createdAt
       updatedAt
       next {

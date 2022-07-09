@@ -2,7 +2,7 @@ import type { GatsbyConfig } from "gatsby";
 import * as path from "path";
 
 const config: GatsbyConfig = {
-  graphqlTypegen: true,
+  graphqlTypegen: false,
   siteMetadata: {
     title: "Vulpo",
     description: "Open-Source E-Learning Platform.",

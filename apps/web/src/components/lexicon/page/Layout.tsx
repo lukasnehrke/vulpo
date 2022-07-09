@@ -1,5 +1,6 @@
 import * as React from "react";
 
+import Footer from "../../Footer";
 import Banner from "./Banner";
 import PageDrawer from "./Drawer";
 
@@ -14,10 +15,13 @@ const PageLayout = ({ page, fullscreen, children }: Props) => {
   const br = [...(page.lesson!.categories || []), { title: page.lesson!.title, url: page.lesson!.url }];
 
   return (
-    <div id="lexicon-page" className="h-full" style={style}>
-      <PageDrawer page={page} />
-      <Banner breadcrumbs={br} />
-      {children}
+    <div className="main flex flex-col">
+      <main id="lexicon-page" className="grow" style={style}>
+        <PageDrawer page={page} />
+        <Banner breadcrumbs={br} />
+        {children}
+      </main>
+      <Footer />
     </div>
   );
 };

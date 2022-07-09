@@ -56,7 +56,7 @@ const Footer = () => {
   );
 
   return (
-    <>
+    <footer>
       <div className="px-4 py-4 bg-[#0d1f39]">
         <div className="grid grid-cols-1 lg:grid-cols-2 max-w-screen-xl mx-auto py-4">
           <div className="hidden lg:flex items-center">
@@ -109,7 +109,7 @@ const Footer = () => {
           ))}
         </div>
       </div>
-    </>
+    </footer>
   );
 };
 

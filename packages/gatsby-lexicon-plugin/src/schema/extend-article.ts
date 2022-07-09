@@ -1,3 +1,4 @@
+import { compileMdx } from "../mdx/compile";
 import { getCreatedAt, getLastModified } from "../util/git";
 import { pageResolvers } from "./extend-pages";
 import type { CreateSchema } from "./index";
@@ -22,19 +23,21 @@ export const createArticleSchema: CreateSchema = async (args, options) => {
         content: {
           type: "String!",
           async resolve(node) {
-            return "";
+            const { mdx } = await compileMdx({ path: node.source });
+            return mdx;
           },
         },
         toc: {
-          type: "String",
+          type: "JSON",
           args: {
             depth: {
               type: "Int",
-              default: 2,
+              default: 3,
             },
           },
-          async resolve(node, { depth }) {
-            return [];
+          async resolve(node) {
+            const { toc } = await compileMdx({ path: node.source });
+            return toc;
           },
         },
       },

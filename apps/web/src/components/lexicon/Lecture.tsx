@@ -5,9 +5,8 @@ import { ExclamationCircleIcon } from "@heroicons/react/solid";
 import clsx from "clsx";
 import * as React from "react";
 
-import Footer from "../Footer";
 import Link from "../link";
-import Banner from "./page/Banner";
+import Toc from "./Toc";
 
 interface Props {
   breadcrumbs: any[];
@@ -30,7 +29,7 @@ interface Props {
   }[];
   editUrl?: string;
   active: string;
-  toc?: string;
+  toc?: any;
   content: any;
   createdAt?: string;
   updatedAt?: string;
@@ -153,12 +152,9 @@ const Lecture = (props: Props) => {
           </footer>
         </article>
         <aside className="lecture-side">
-          <div className="sticky top-20 mx-auto border-l-[3px] border-theme text-slate-800">
-            {props.toc && <div dangerouslySetInnerHTML={{ __html: props.toc }} />}
-          </div>
+          <Toc toc={props.toc} />
         </aside>
       </div>
-      <Footer />
     </div>
   );
 };
