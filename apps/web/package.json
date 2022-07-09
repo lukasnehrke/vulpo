@@ -14,7 +14,7 @@
     "@headlessui/react": "1.6.5",
     "@heroicons/react": "1.0.6",
     "@lukasnehrke/gatsby-lexicon-plugin": "0.0.1",
-    "@tailwindcss/typography": "0.5.2",
+    "@tailwindcss/typography": "0.5.3",
     "@types/react-helmet": "6.1.5",
     "@types/react-instantsearch-dom": "6.12.3",
     "algoliasearch": "4.13.1",
