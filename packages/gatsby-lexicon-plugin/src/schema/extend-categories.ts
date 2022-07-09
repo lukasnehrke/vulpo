@@ -16,9 +16,9 @@ export const getCategories = async (context: any, node: any) => {
   return categories;
 };
 
-const getURL = async (context: any, node: any) => {
+export const getURL = async (context: any, node: any) => {
   const categories = await getCategories(context, node);
-  return categories.reduce((url, category) => (category.root ? `${url}/${category.slug}` : url), "") + `/${node.slug}`;
+  return categories.reduce((url, c) => (c.root ? `${url}/${c.slug}` : url), `/${node.lang ?? ""}`) + `/${node.slug}`;
 };
 
 export const getColor = async (context: any, node: any): Promise<any> => {
@@ -41,6 +41,7 @@ export const createCategorySchema: CreateSchema = async (args, options) => {
         path: { type: "String!" },
         absolutePath: { type: "String!" },
         parentDirectory: { type: "String!" },
+        lang: { type: "String" },
         root: { type: "Boolean!" },
         slug: { type: "String!" },
         title: { type: "String!" },

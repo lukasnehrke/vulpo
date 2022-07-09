@@ -1,12 +1,7 @@
 import * as path from "path";
 
-import { getCategories, getColor, getParent } from "./extend-categories";
+import { getCategories, getColor, getParent, getURL } from "./extend-categories";
 import type { CreateSchema } from "./index";
-
-export const getURL = async (context: any, node?: any) => {
-  const categories = await getCategories(context, node);
-  return categories.reduce((url, category) => (category.root ? `${url}/${category.slug}` : url), "") + `/${node.slug}`;
-};
 
 export const getAuthors = async (context: any, node?: any) => {
   return context.nodeModel.findAll({
@@ -30,6 +25,7 @@ export const createLessonSchema: CreateSchema = async (args) => {
         path: { type: "String!" },
         absolutePath: { type: "String!" },
         parentDirectory: { type: "String!" },
+        lang: { type: "String" },
         slug: { type: "String!" },
         title: { type: "String!" },
         category: {

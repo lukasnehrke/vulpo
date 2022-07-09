@@ -1,6 +1,6 @@
 import type { GatsbyNode } from "gatsby";
 
-import type { Options } from "./plugin-options";
+import type { PluginOptions } from "./plugin-options";
 
 const query = `query {
   allLexiconCategory {
@@ -30,7 +30,7 @@ const query = `query {
  * @see https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/#createPages
  */
 export const createPages: GatsbyNode["createPages"] = async (args, options) => {
-  const opts = options as Options;
+  const opts = options as PluginOptions;
   if (!opts.template) return;
 
   const { data } = (await args.graphql(query)) as any;

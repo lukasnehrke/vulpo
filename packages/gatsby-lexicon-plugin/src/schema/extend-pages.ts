@@ -1,9 +1,9 @@
 import type { CreateSchemaCustomizationArgs } from "gatsby";
 import * as path from "path";
 
-import type { Options } from "../plugin-options";
-import { getColor } from "./extend-categories";
-import { getAuthors, getPages, getURL } from "./extend-lessons";
+import type { PluginOptions } from "../plugin-options";
+import { getColor, getURL } from "./extend-categories";
+import { getPages } from "./extend-lessons";
 import type { CreateSchema } from "./index";
 
 const pageFields = {
@@ -26,7 +26,7 @@ export const getParent = async (context: any, node?: any) => {
   });
 };
 
-export const pageResolvers = (args: CreateSchemaCustomizationArgs, options: Options) => ({
+export const pageResolvers = (args: CreateSchemaCustomizationArgs, options: PluginOptions) => ({
   ...pageFields,
   edit: {
     type: "String",

@@ -1,6 +1,6 @@
 import { GatsbyNode } from "gatsby";
 
-export type Options = {
+export type PluginOptions = {
   edit?: string;
   template?: {
     category?: string;
