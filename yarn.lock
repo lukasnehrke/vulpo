@@ -5547,7 +5547,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"algoliasearch-helper@npm:>=3, algoliasearch-helper@npm:^3.8.2, algoliasearch-helper@npm:^3.9.0":
+"algoliasearch-helper@npm:>=3, algoliasearch-helper@npm:^3.10.0, algoliasearch-helper@npm:^3.8.2":
   version: 3.10.0
   resolution: "algoliasearch-helper@npm:3.10.0"
   dependencies:
@@ -17441,36 +17441,36 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-instantsearch-core@npm:6.29.0":
-  version: 6.29.0
-  resolution: "react-instantsearch-core@npm:6.29.0"
+"react-instantsearch-core@npm:6.30.0":
+  version: 6.30.0
+  resolution: "react-instantsearch-core@npm:6.30.0"
   dependencies:
     "@babel/runtime": ^7.1.2
-    algoliasearch-helper: ^3.9.0
+    algoliasearch-helper: ^3.10.0
     prop-types: ^15.6.2
     react-fast-compare: ^3.0.0
   peerDependencies:
     algoliasearch: ">= 3.1 < 5"
     react: ">= 16.3.0 < 19"
-  checksum: b33d35f7dd1a55cde51d65a46ce828520fdd00b5ee33b69b6fa773230aa7ae9b78f0aa293aa547625a2b2b95a0ff96ee6b6b7b6b003b6c1e7d410a56a7833b9e
+  checksum: 1ad5e6771efc6de90c161c5d5f39c801033f6a3ffcc23d904b94ac29136a874776c5ef9f887e4d6ec7a799bdad0a4302f12c1ec4e9e6c56595fe2f92b53c6df9
   languageName: node
   linkType: hard
 
-"react-instantsearch-dom@npm:6.29.0":
-  version: 6.29.0
-  resolution: "react-instantsearch-dom@npm:6.29.0"
+"react-instantsearch-dom@npm:6.30.0":
+  version: 6.30.0
+  resolution: "react-instantsearch-dom@npm:6.30.0"
   dependencies:
     "@babel/runtime": ^7.1.2
-    algoliasearch-helper: ^3.9.0
+    algoliasearch-helper: ^3.10.0
     classnames: ^2.2.5
     prop-types: ^15.6.2
     react-fast-compare: ^3.0.0
-    react-instantsearch-core: 6.29.0
+    react-instantsearch-core: 6.30.0
   peerDependencies:
     algoliasearch: ">= 3.1 < 5"
     react: ">= 16.3.0 < 19"
     react-dom: ">= 16.3.0 < 19"
-  checksum: 20a6bfa09336f05efd57fa07ee8e0133f0f8654d4d8a0d0a09cee679acd8a8c87dafcca5e7447dfa51fa1409239c94ccbed112414fd967e2cb78beddcbd8d7dc
+  checksum: 9cb3e2d610aba822d8e301bb847479aa6e422cafe646af21e0b29bc00cd4ee129dbad31e4d7b7a4677524ce1220c3c02dde202bbd5b3ac04a3257eedbd544b82
   languageName: node
   linkType: hard
 
@@ -20894,7 +20894,7 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     react-helmet: 6.1.0
-    react-instantsearch-dom: 6.29.0
+    react-instantsearch-dom: 6.30.0
     tailwindcss: 3.1.5
   languageName: unknown
   linkType: soft
