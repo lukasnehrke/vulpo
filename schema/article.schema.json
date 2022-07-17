@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/lukasnehrke/vulpo/schema/article.schema.json",
+  "title": "Article",
+  "description": "A lexicon page that consists primarily of text",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The id of this page"
+    },
+    "title": {
+      "type": "string",
+      "description": "The title of this page"
+    },
+    "slug": {
+      "type": "string",
+      "description": "The slug of this page"
+    },
+    "description": {
+      "type": "string",
+      "description": "The description of this page"
+    }
+  }
+}
