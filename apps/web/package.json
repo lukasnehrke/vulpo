@@ -18,7 +18,7 @@
     "@types/react-helmet": "6.1.5",
     "@types/react-instantsearch-dom": "6.12.3",
     "algoliasearch": "4.14.2",
-    "autoprefixer": "10.4.7",
+    "autoprefixer": "10.4.8",
     "clsx": "1.2.1",
     "gatsby": "4.19.2",
     "gatsby-plugin-gatsby-cloud": "4.19.0",
