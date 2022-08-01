@@ -38,8 +38,8 @@
     "vfile": "^5.3.4"
   },
   "devDependencies": {
-    "@babel/cli": "7.18.9",
-    "@babel/core": "7.18.9",
+    "@babel/cli": "7.18.10",
+    "@babel/core": "7.18.10",
     "babel-preset-gatsby-package": "2.19.0"
   }
 }
