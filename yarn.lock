@@ -17810,9 +17810,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-instantsearch-core@npm:6.30.2":
-  version: 6.30.2
-  resolution: "react-instantsearch-core@npm:6.30.2"
+"react-instantsearch-core@npm:6.30.3":
+  version: 6.30.3
+  resolution: "react-instantsearch-core@npm:6.30.3"
   dependencies:
     "@babel/runtime": ^7.1.2
     algoliasearch-helper: ^3.10.0
@@ -17821,25 +17821,25 @@ __metadata:
   peerDependencies:
     algoliasearch: ">= 3.1 < 5"
     react: ">= 16.3.0 < 19"
-  checksum: f4b5b831c44f2102c7c5c5f4ab5b4fe2ef2f28a19e216949f46b89f5d50000c07d7645cdd1f7a4cdc5cb4af198195194fd841d77a2068d3f308de5dd91aef497
+  checksum: 3e8c3eee30eb4221ca12512b9a77123c7d3314db757238100f79565df0f47a4f0a2563104d8dcc832abad26239372a257f147dc6791da6ff2683a77d06153211
   languageName: node
   linkType: hard
 
-"react-instantsearch-dom@npm:6.30.2":
-  version: 6.30.2
-  resolution: "react-instantsearch-dom@npm:6.30.2"
+"react-instantsearch-dom@npm:6.30.3":
+  version: 6.30.3
+  resolution: "react-instantsearch-dom@npm:6.30.3"
   dependencies:
     "@babel/runtime": ^7.1.2
     algoliasearch-helper: ^3.10.0
     classnames: ^2.2.5
     prop-types: ^15.6.2
     react-fast-compare: ^3.0.0
-    react-instantsearch-core: 6.30.2
+    react-instantsearch-core: 6.30.3
   peerDependencies:
     algoliasearch: ">= 3.1 < 5"
     react: ">= 16.3.0 < 19"
     react-dom: ">= 16.3.0 < 19"
-  checksum: 6d29f303b7c06093e202568a9ae566ddfa9be61c0eab7f8b450885eb7e9432b0e69852ad2c027f78b5662df8439c709c14f4104e0a24cee558f6132fe99f7449
+  checksum: e641a6fdf7a36ff0107c1075dc623cbc7688fe9cce6c2ab627aa14e9643e4a5b2cd6fd5ecaaacbfeb983c8ffc7aa5ea8499c084ff33469a7f121b19fb9a292ec
   languageName: node
   linkType: hard
 
@@ -21260,7 +21260,7 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     react-helmet: 6.1.0
-    react-instantsearch-dom: 6.30.2
+    react-instantsearch-dom: 6.30.3
     tailwindcss: 3.1.7
   languageName: unknown
   linkType: soft
