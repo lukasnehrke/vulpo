@@ -26,8 +26,8 @@
   },
   "dependencies": {
     "@mdx-js/mdx": "^2.1.2",
-    "gatsby": "4.19.2",
-    "gatsby-source-filesystem": "4.19.0",
+    "gatsby": "4.20.0",
+    "gatsby-source-filesystem": "4.20.0",
     "is-relative-url": "^4.0.0",
     "mdast-util-toc": "^6.1.0",
     "rehype-katex": "^6.0.2",
@@ -40,6 +40,6 @@
   "devDependencies": {
     "@babel/cli": "7.18.9",
     "@babel/core": "7.18.9",
-    "babel-preset-gatsby-package": "2.19.0"
+    "babel-preset-gatsby-package": "2.20.0"
   }
 }
